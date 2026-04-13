@@ -2,5 +2,15 @@
     "framework": null,
     "buildCommand": null,
     "outputDirectory": "dist",
-    "installCommand": null
+    "installCommand": null,
+    "rewrites": [
+        { "source": "/about", "destination": "/about.html" },
+        { "source": "/education", "destination": "/education.html" },
+        { "source": "/experience", "destination": "/experience.html" },
+        { "source": "/projects", "destination": "/projects.html" },
+        { "source": "/articles", "destination": "/articles.html" },
+        { "source": "/blog", "destination": "/articles.html" },
+        { "source": "/contact", "destination": "/contact.html" },
+        { "source": "/cv", "destination": "/cv.html" }
+    ]
 }
