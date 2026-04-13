@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Dika | Product & Project Manager</title>
+    <link rel="icon" type="image/png" href="images/logo_Dika_.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root { --bg-primary: #0C0C0C; --bg-secondary: #141414; --bg-tertiary: #1C1C1C; --text-primary: #FFFFFF; --text-secondary: #888888; --text-muted: #555555; --border: #2A2A2A; --gradient-1: #ff66c4; --gradient-2: #F7C94B; --gradient-3: #4ECDC4; --nav-bg: rgba(255, 255, 255, 0.05); --nav-border: rgba(255, 255, 255, 0.08);
+            --accent: #FFFFFF;}
+        [data-theme="light"] {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --bg-tertiary: #EBEBEB;
+            --text-primary: #0C0C0C;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #0C0C0C;
+            --accent-hover: #333333;
+            --border: #E0E0E0;
+            --nav-bg: rgba(0, 0, 0, 0.05);
+            --nav-border: rgba(0, 0, 0, 0.08);
+        }
+        .bg-tunnel { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -3; background: var(--bg-primary); }
+        .tunnel-lines { position: absolute; top: 50%; left: 50%; width: 200%; height: 200%; transform: translate(-50%, -50%); perspective: 1000px; }
+        .tunnel-line { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%); opacity: 0.04; transform-origin: center; animation: tunnelMove 3s linear infinite; }
+        .tunnel-line:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); animation-duration: 3s; opacity: 0; }
+        .tunnel-line:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); animation-duration: 3.2s; }
+        .tunnel-line:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); animation-duration: 3.1s; opacity: 0; }
+        .tunnel-line:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); animation-duration: 2.9s; }
+        .tunnel-line:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); animation-duration: 3.3s; }
+        .tunnel-line:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); animation-duration: 2.7s; opacity: 0; }
+        .tunnel-line:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); animation-duration: 3.4s; }
+        .tunnel-line:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); animation-duration: 3s; }
+        .tunnel-line:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); animation-duration: 3.2s; opacity: 0; }
+        .tunnel-line:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); animation-duration: 3.1s; }
+        @keyframes tunnelMove { 0% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(0.1); opacity: 0; } 20% { opacity: 0.05; } 80% { opacity: 0.05; } 100% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(2); opacity: 0; } }
+        .tunnel-light { position: fixed; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.06; animation: lightPulse 4s ease-in-out infinite; pointer-events: none; z-index: -2; }
+        @keyframes lightPulse { 0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.2); } }
+        .tunnel-rings { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmax; height: 100vmax; pointer-events: none; z-index: -1; }
+        .ring { position: absolute; top: 50%; left: 50%; border: 1px solid var(--accent); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; animation: ringMove 4s linear infinite; }
+        .ring:nth-child(1) { width: 100px; height: 100px; animation-delay: 0s; }
+        .ring:nth-child(2) { width: 250px; height: 250px; animation-delay: 0.5s; }
+        .ring:nth-child(3) { width: 400px; height: 400px; animation-delay: 1s; }
+        .ring:nth-child(4) { width: 550px; height: 550px; animation-delay: 1.5s; }
+        .ring:nth-child(5) { width: 700px; height: 700px; animation-delay: 2s; }
+        .ring:nth-child(6) { width: 850px; height: 850px; animation-delay: 2.5s; }
+        @keyframes ringMove { 0% { width: 0; height: 0; opacity: 0; } 10% { opacity: 0.2; } 90% { opacity: 0.05; } 100% { width: 100vmax; height: 100vmax; opacity: 0; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; line-height: 1.5; padding-bottom: 120px; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.1; }
+        a { color: inherit; text-decoration: none; }
+        .mini-hero { padding: 6rem 2rem 4rem; text-align: center; }
+        .mini-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .mini-hero p { color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+        section { max-width: 1200px; margin: 0 auto; }
+        .section-header { margin-bottom: 4rem; text-align: center; }
+        .section-label { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+        
+        .project-filters { display: flex; flex-wrap: wrap; gap: clamp(0.5rem, 1vw, 0.75rem); justify-content: center; margin-bottom: clamp(1.5rem, 3vw, 3rem); }
+        .filter-btn { padding: clamp(0.5rem, 1vw, 0.625rem) clamp(0.85rem, 1.5vw, 1.25rem); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); font-size: clamp(0.75rem, 1.2vw, 0.9rem); font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .filter-btn:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+        .filter-btn.active { background: var(--text-primary); color: var(--bg-primary); }
+        
+         .projects-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 2rem); }
+         .project-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.4s; cursor: pointer; }
+        .project-card:hover { transform: translateY(-8px); border-color: var(--text-secondary); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+        .project-card.hidden { display: none; }
+        .project-image { position: relative; aspect-ratio: 16/10; background: var(--bg-tertiary); }
+        .project-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: clamp(2rem, 5vw, 4rem); color: var(--text-muted); background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); }
+        .project-content { padding: clamp(1rem, 2vw, 2rem); }
+        .project-category { display: inline-block; font-size: clamp(0.65rem, 1vw, 0.75rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gradient-1); margin-bottom: clamp(0.35rem, 0.75vw, 0.5rem); }
+        .project-content h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; margin-bottom: clamp(0.5rem, 1vw, 0.75rem); }
+        .project-content p { color: var(--text-secondary); font-size: clamp(0.8rem, 1.2vw, 0.9rem); line-height: 1.6; margin-bottom: clamp(0.75rem, 1.5vw, 1rem); }
+        .project-tags { display: flex; flex-wrap: wrap; gap: clamp(0.35rem, 0.75vw, 0.5rem); }
+         .project-tags span { padding: clamp(0.3rem, 0.6vw, 0.375rem) clamp(0.6rem, 1vw, 0.75rem); background: var(--bg-tertiary); border-radius: 50px; font-size: clamp(0.7rem, 1vw, 0.8rem); color: var(--text-muted); }
+         
+         /* Project Modal */
+         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+         .modal.active { display: flex; animation: fadeIn 0.3s ease; }
+         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+         .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.5rem); max-width: 90%; max-height: 90vh; overflow-y: auto; position: relative; animation: slideUp 0.3s ease; }
+         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+         .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 1.2rem; color: var(--text-primary); }
+         .modal-close:hover { background: var(--border); transform: rotate(90deg); }
+         .modal-header { margin-bottom: 2rem; }
+         .modal-title { font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: 'DM Serif Display', serif; margin-bottom: 0.5rem; }
+         .modal-category { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gradient-1); margin-bottom: 1rem; }
+         .modal-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+         .modal-section { margin-bottom: 2rem; }
+         .modal-section-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary); font-family: 'DM Sans', sans-serif; }
+         .modal-section-content { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+         .modal-tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+         .modal-tech-tag { padding: 0.5rem 1rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; font-size: 0.85rem; color: var(--text-primary); }
+         .modal-features { list-style: none; }
+         .modal-features li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
+         .modal-features li:before { content: "▸"; position: absolute; left: 0; color: var(--gradient-1); }
+         
+         @media (max-width: 768px) {
+             .modal-content { max-width: 95%; max-height: 95vh; padding: clamp(1rem, 2vw, 1.5rem); }
+             .modal-close { width: 36px; height: 36px; font-size: 1rem; }
+         }
+        
+                .nav-left-container, .nav-right-container {
+            position: fixed; bottom: 2rem; z-index: 100;
+            display: flex; align-items: center; gap: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--nav-bg); backdrop-filter: blur(20px);
+            border-radius: 100px; border: 1px solid var(--nav-border);
+            max-width: 45vw; overflow-x: auto; scrollbar-width: none;
+        }
+        .nav-left-container::-webkit-scrollbar, .nav-right-container::-webkit-scrollbar { display: none; }
+        .nav-left-container { right: 50%; margin-right: 28px; }
+        .nav-right-container { left: 50%; margin-left: 28px; flex-shrink: 0; }
+        .nav-item {
+            padding: 0.5rem 0.9rem; font-size: 0.75rem; font-weight: 500;
+            color: var(--text-secondary); border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; flex-shrink: 0;
+        }
+        .nav-item:hover { color: var(--text-primary); }
+        .nav-item.active { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+        .nav-home { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; padding: 0; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); border-radius: 50%; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 101; flex-shrink: 0; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+        .nav-home i { font-size: 1.2rem; color: white; }
+        .nav-home:hover { transform: translateX(-50%) scale(1.15); }
+        .theme-toggle {
+            width: 60px; height: 32px; display: flex; align-items: center; justify-content: center;
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px;
+            cursor: pointer; margin-left: 0.25rem; padding: 0 0.5rem; transition: all 0.3s; flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .theme-toggle i { font-size: 1rem; color: var(--text-primary); transition: color 0.3s; }
+        .nav-item-icon { width: 60px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; flex-shrink: 0; margin-right: 0.25rem; padding: 0; }
+         .nav-item-icon i { font-size: 1rem; color: var(--text-primary); }
+         
+         /* Hamburger Menu */
+         .hamburger-menu { display: none; position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; z-index: 102; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all 0.3s; }
+         .hamburger-menu:hover { background: var(--bg-tertiary); }
+         .hamburger-line { width: 24px; height: 2px; background: var(--text-primary); border-radius: 1px; transition: all 0.3s; }
+         .hamburger-menu.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+         .hamburger-menu.active .hamburger-line:nth-child(2) { opacity: 0; }
+         .hamburger-menu.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+         
+         .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-primary); z-index: 101; flex-direction: column; padding-top: 100px; padding-bottom: 120px; overflow-y: auto; animation: slideIn 0.3s ease; }
+         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+         .mobile-menu.active { display: flex; }
+         .mobile-menu-item { padding: 1rem 2rem; font-size: 1.1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+         .mobile-menu-item:hover, .mobile-menu-item:active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-item.active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-theme { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; justify-content: space-between; border-top: 1px solid var(--border); margin-top: auto; }
+         .mobile-menu-theme-label { font-size: 0.95rem; }
+        
+        .logo { position: fixed; top: 2rem; left: 2rem; font-size: 1.25rem; font-weight: 600; z-index: 100; }
+        [data-theme="light"] .logo-img-dark { display: none; }
+        [data-theme="light"] .logo-img-light { display: inline; }
+        .logo-img-light { display: none; }
+        
+        footer { margin-top: 8rem; padding: 0 2rem 3rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; border-top: 1px solid var(--border); }
+        .footer-main { display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; gap: 3rem; }
+        .footer-left { display: flex; align-items: center; gap: 1.5rem; }
+        .footer-tagline { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-links { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links .footer-separator { font-size: 0.75rem; color: var(--text-muted); opacity: 0.5; }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all 0.3s; border-radius: 8px; }
+        .footer-social a:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0 0; border-top: 1px solid var(--border); }
+        .footer-credits { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-badge { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-muted); }
+        
+         @media (max-width: 480px) {
+             .nav-left-container, .nav-right-container, .nav-home { display: none; }
+             .hamburger-menu { display: flex; }
+             .project-filters { gap: clamp(0.4rem, 0.75vw, 0.5rem); margin-bottom: clamp(1rem, 2vw, 1.5rem); }
+             .filter-btn { padding: clamp(0.4rem, 0.75vw, 0.5rem) clamp(0.75rem, 1.2vw, 1rem); font-size: clamp(0.7rem, 1vw, 0.75rem); }
+             .projects-grid { grid-template-columns: 1fr; gap: clamp(0.75rem, 1.5vw, 1.5rem); }
+             .project-content { padding: clamp(0.75rem, 1.5vw, 1.5rem); }
+         }
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; gap: clamp(1rem, 1.5vw, 1.5rem); }
+            .filter-btn { padding: clamp(0.5rem, 0.75vw, 0.6rem) clamp(1rem, 1.2vw, 1.2rem); font-size: clamp(0.8rem, 1.1vw, 0.85rem); }
+            .footer-main { flex-direction: column; text-align: center; }
+            .footer-left { flex-direction: column; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+            .nav-left-container, .nav-right-container { max-width: 40vw; }
+            .nav-item { padding: 0.4rem 0.6rem; font-size: 0.65rem; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 2vw, 2rem); }
+        }
+        @media (min-width: 1025px) {
+            .projects-grid { grid-template-columns: repeat(auto-fill, minmax(clamp(280px, 30%, 350px), 1fr)); gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-tunnel">
+        <div class="tunnel-lines">
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+        </div>
+        <div class="tunnel-light"></div>
+        <div class="tunnel-rings">
+            <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        </div>
+    </div>
+
+    <a href="/" class="logo">
+         <img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 80px;">
+         <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 80px;">
+     </a>
+     
+     <!-- Hamburger Menu Button (Mobile Only) -->
+     <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+     </button>
+     
+     <!-- Mobile Menu (Mobile Only) -->
+     <nav class="mobile-menu" id="mobileMenu">
+         <a href="/about" class="mobile-menu-item">About</a>
+         <a href="/education" class="mobile-menu-item">Education</a>
+         <a href="/experience" class="mobile-menu-item">Experience</a>
+         <a href="/projects" class="mobile-menu-item">Projects</a>
+         <a href="/articles" class="mobile-menu-item">Articles</a>
+         <a href="/contact" class="mobile-menu-item">Contact</a>
+         <a href="/cv" target="_blank" class="mobile-menu-item">Download CV</a>
+         <div class="mobile-menu-theme">
+             <span class="mobile-menu-theme-label">Theme:</span>
+             <button id="mobileThemeToggle" class="theme-toggle" onclick="toggleTheme()" style="margin-left: 0;"><i class="ph ph-moon"></i></button>
+         </div>
+     </nav>
+     
+     <nav class="nav-left-container">
+        <a href="/cv" target="_blank" class="nav-item nav-item-icon" title="Preview CV"><i class="ph ph-file-text"></i></a>
+        <a href="/about" class="nav-item">About</a>
+        <a href="/education" class="nav-item">Education</a>
+        <a href="/experience" class="nav-item">Experience</a>
+    </nav>
+
+    <nav class="nav-right-container">
+        <a href="/projects" class="nav-item">Projects</a>
+        <a href="/articles" class="nav-item">Articles</a>
+        <a href="/contact" class="nav-item">Contact</a>
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()"><i class="ph ph-moon"></i></button>
+    </nav>
+    <a href="/" class="nav-home"><i class="ph ph-house"></i></a>
+
+    <div class="mini-hero"><h1>Projects</h1><p>A collection of my work and portfolio</p></div>
+
+    <section style="padding-top: 4rem;">
+         <div class="project-filters">
+             <button class="filter-btn active" data-filter="all">All</button>
+             <button class="filter-btn" data-filter="web">Web App</button>
+             <button class="filter-btn" data-filter="saas">SaaS</button>
+             <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+             <button class="filter-btn" data-filter="ai">AI / ML</button>
+             <button class="filter-btn" data-filter="web3">Web3</button>
+             <button class="filter-btn" data-filter="iot">IoT</button>
+             <button class="filter-btn" data-filter="social">Social</button>
+             <button class="filter-btn" data-filter="gaming">Gaming</button>
+             <button class="filter-btn" data-filter="other">Other</button>
+         </div>
+         <div class="projects-grid">
+             <div class="project-card" data-category="ecommerce" data-id="expertconnect"><div class="project-image"><div class="project-placeholder"><i class="ph ph-users-three"></i></div></div><div class="project-content"><span class="project-category">E-Commerce</span><h3>ExpertConnect</h3><p>Marketplace platform connecting customers with verified experts for professional consultations and services.</p><div class="project-tags"><span>Laravel 11</span><span>Vue.js</span><span>PostgreSQL</span></div></div></div>
+             <div class="project-card" data-category="web" data-id="livetips"><div class="project-image"><div class="project-placeholder"><i class="ph ph-currency-circle-dollar"></i></div></div><div class="project-content"><span class="project-category">Web App</span><h3>LiveTips</h3><p>Real-time donation platform for content creators with live streaming integration and instant alerts.</p><div class="project-tags"><span>Laravel 12</span><span>SQLite</span><span>SSE</span></div></div></div>
+             <div class="project-card" data-category="web" data-id="ceremonyhub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-heart"></i></div></div><div class="project-content"><span class="project-category">Web App</span><h3>CeremonyHub</h3><p>Wedding management platform for couples to organize guest lists, timelines, vendors, and budgets.</p><div class="project-tags"><span>Laravel</span><span>MySQL</span></div></div></div>
+             <div class="project-card" data-category="other" data-id="digitalinvite"><div class="project-image"><div class="project-placeholder"><i class="ph ph-envelope-simple-open"></i></div></div><div class="project-content"><span class="project-category">Other</span><h3>Digital Invite</h3><p>Online wedding invitation system with RSVP tracking, gift registries, and animated greetings.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span></div></div></div>
+             <div class="project-card" data-category="saas" data-id="trackfleet"><div class="project-image"><div class="project-placeholder"><i class="ph ph-truck"></i></div></div><div class="project-content"><span class="project-category">SaaS</span><h3>TrackFleet</h3><p>Fleet management solution for tracking vehicles, driver schedules, maintenance logs, and fuel consumption.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>GPS API</span></div></div></div>
+             <div class="project-card" data-category="web" data-id="learnhub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-graduation-cap"></i></div></div><div class="project-content"><span class="project-category">Web App</span><h3>LearnHub</h3><p>Interactive e-learning platform with video courses, quizzes, progress tracking, and certificate generation.</p><div class="project-tags"><span>Next.js</span><span>Prisma</span><span>Stripe</span></div></div></div>
+             <div class="project-card" data-category="ai" data-id="forecastai"><div class="project-image"><div class="project-placeholder"><i class="ph ph-brain"></i></div></div><div class="project-content"><span class="project-category">AI / ML</span><h3>ForecastAI</h3><p>AI-powered project outcome prediction system using historical data and risk analysis algorithms.</p><div class="project-tags"><span>Python</span><span>TensorFlow</span><span>FastAPI</span></div></div></div>
+             <div class="project-card" data-category="saas" data-id="freelancehub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-briefcase"></i></div></div><div class="project-content"><span class="project-category">SaaS</span><h3>FreelanceHub</h3><p>Freelance marketplace connecting clients with skilled professionals for project-based work and collaborations.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div></div></div>
+             <div class="project-card" data-category="web" data-id="smartcity"><div class="project-image"><div class="project-placeholder"><i class="ph ph-buildings"></i></div></div><div class="project-content"><span class="project-category">Web App</span><h3>SmartCity</h3><p>Urban management platform for citizen services, public infrastructure monitoring, and government reporting.</p><div class="project-tags"><span>Laravel</span><span>PostgreSQL</span><span>Maps API</span></div></div></div>
+             <div class="project-card" data-category="saas" data-id="factorypro"><div class="project-image"><div class="project-placeholder"><i class="ph ph-factory"></i></div></div><div class="project-content"><span class="project-category">SaaS</span><h3>FactoryPro</h3><p>Enterprise resource planning system for manufacturing operations including inventory, production, and supply chain.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>PostgreSQL</span></div></div></div>
+             <div class="project-card" data-category="gaming" data-id="gamepal"><div class="project-image"><div class="project-placeholder"><i class="ph ph-game-controller"></i></div></div><div class="project-content"><span class="project-category">Gaming</span><h3>GamePal</h3><p>Gaming companion platform for finding teammates, scheduling matches, and tracking game statistics.</p><div class="project-tags"><span>React</span><span>Laravel</span><span>WebSocket</span></div></div></div>
+              <div class="project-card" data-category="social" data-id="connectsphere"><div class="project-image"><div class="project-placeholder"><i class="ph ph-chats-circle"></i></div></div><div class="project-content"><span class="project-category">Social</span><h3>ConnectSphere</h3><p>Social networking platform with user profiles, posts, comments, messaging, and real-time notifications.</p><div class="project-tags"><span>React</span><span>Node.js</span><span>Socket.io</span></div></div></div>
+              <div class="project-card" data-category="web3" data-id="cryptovault"><div class="project-image"><div class="project-placeholder"><i class="ph ph-lock"></i></div></div><div class="project-content"><span class="project-category">Web3</span><h3>CryptoVault</h3><p>Secure cryptocurrency wallet with multi-chain support, decentralized finance integration, and advanced security features.</p><div class="project-tags"><span>Solidity</span><span>Web3.js</span><span>Ethereum</span></div></div></div>
+              <div class="project-card" data-category="web3" data-id="tokenbridge"><div class="project-image"><div class="project-placeholder"><i class="ph ph-bridge"></i></div></div><div class="project-content"><span class="project-category">Web3</span><h3>TokenBridge</h3><p>Cross-chain token bridge enabling seamless asset transfers between blockchain networks with automated validation.</p><div class="project-tags"><span>Solidity</span><span>Smart Contracts</span><span>Hardhat</span></div></div></div>
+                <div class="project-card" data-category="iot" data-id="smarthub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-gear"></i></div></div><div class="project-content"><span class="project-category">IoT</span><h3>SmartHub</h3><p>Connected home automation system managing smart devices, energy consumption, and environmental monitoring in real-time.</p><div class="project-tags"><span>Arduino</span><span>MQTT</span><span>Node-RED</span></div></div></div>
+              <div class="project-card" data-category="saas" data-id="koperasihub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-handshake"></i></div></div><div class="project-content"><span class="project-category">SaaS</span><h3>KoperasiHub</h3><p>Cooperative management system for tracking member profiles, savings, loans, dividends distribution, and meeting schedules.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div></div></div>
+              <div class="project-card" data-category="ecommerce" data-id="storehub"><div class="project-image"><div class="project-placeholder"><i class="ph ph-shopping-cart"></i></div></div><div class="project-content"><span class="project-category">E-Commerce</span><h3>StoreHub</h3><p>Multi-vendor e-commerce platform with inventory management, order tracking, payment integration, and seller analytics dashboard.</p><div class="project-tags"><span>Next.js</span><span>Stripe</span><span>PostgreSQL</span></div></div></div>
+              <div class="project-card" data-category="web3" data-id="escrowchain"><div class="project-image"><div class="project-placeholder"><i class="ph ph-shield-check"></i></div></div><div class="project-content"><span class="project-category">Web3</span><h3>EscrowChain</h3><p>Blockchain-based escrow service for secure transactions between parties with automated smart contract execution and dispute resolution.</p><div class="project-tags"><span>Solidity</span><span>Web3.js</span><span>Truffle</span></div></div></div>
+           </div>
+     </section>
+
+     <!-- Project Modal -->
+     <div class="modal" id="projectModal">
+         <div class="modal-content">
+             <button class="modal-close" onclick="closeModal()"><i class="ph ph-x"></i></button>
+             <div class="modal-header">
+                 <span class="modal-category" id="modalCategory"></span>
+                 <h2 class="modal-title" id="modalTitle"></h2>
+             </div>
+             <p class="modal-description" id="modalDescription"></p>
+             <div class="modal-section">
+                 <h3 class="modal-section-title">Key Features</h3>
+                 <ul class="modal-features" id="modalFeatures"></ul>
+             </div>
+             <div class="modal-section">
+                 <h3 class="modal-section-title">Tech Stack</h3>
+                 <div class="modal-tech-stack" id="modalTechStack"></div>
+             </div>
+             <div class="modal-section" id="modalDetailsSection"></div>
+         </div>
+     </div>
+
+     <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-left"><img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 45px; margin-bottom: 0.5rem;">
+                    <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 45px; margin-bottom: 0.5rem;"><span class="footer-tagline">Product & Project Manager</span></div>
+                <div class="footer-links"><a href="/about">About</a><span class="footer-separator">•</span><a href="/education">Education</a><span class="footer-separator">•</span><a href="/experience">Experience</a><span class="footer-separator">•</span><a href="/projects">Projects</a><span class="footer-separator">•</span><a href="/articles">Articles</a><span class="footer-separator">•</span><a href="/contact">Contact</a></div>
+                <div class="footer-social"><a href="https://github.com/Dinoxxc" target="_blank"><i class="ph ph-github-logo"></i></a><a href="https://linkedin.com/in/andikanismawan" target="_blank"><i class="ph ph-linkedin-logo"></i></a><a href="mailto:noorismawanandika@gmail.com"><i class="ph ph-envelope"></i></a></div>
+            </div>
+            <div class="footer-bottom"><p class="footer-credits">© 2026 Dika. All rights reserved.</p><div class="footer-badge"><i class="ph ph-heart"></i><span>Made with passion</span></div></div>
+        </div>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+             const btn = document.getElementById('themeToggle');
+             if (btn) {
+                 const icon = btn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+             const mobileBtn = document.getElementById('mobileThemeToggle');
+             if (mobileBtn) {
+                 const icon = mobileBtn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+         }
+         const savedTheme = localStorage.getItem('theme') || 'dark';
+         document.documentElement.setAttribute('data-theme', savedTheme);
+         updateThemeIcon();
+         
+         // Hamburger Menu
+         const hamburgerMenu = document.getElementById('hamburgerMenu');
+         const mobileMenu = document.getElementById('mobileMenu');
+         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+         
+         if (hamburgerMenu) {
+             hamburgerMenu.addEventListener('click', () => {
+                 hamburgerMenu.classList.toggle('active');
+                 mobileMenu.classList.toggle('active');
+             });
+         
+             mobileMenuItems.forEach(item => {
+                 item.addEventListener('click', () => {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 });
+             });
+         
+             // Close menu when clicking outside
+             document.addEventListener('click', (e) => {
+                 if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-menu')) {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 }
+             });
+         }
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) card.classList.remove('hidden');
+                    else card.classList.add('hidden');
+                });
+            });
+         });
+
+         // Project Details Data
+         const projectsData = {
+             expertconnect: { category: 'E-Commerce', title: 'ExpertConnect', description: 'Marketplace platform connecting customers with verified experts for professional consultations and services.', features: ['Verified expert profiles with ratings', 'Real-time booking and scheduling', 'Secure payment processing', 'Video consultation support', 'Review and rating system'], tech: ['Laravel 11', 'Vue.js', 'PostgreSQL', 'Stripe API'], details: 'A comprehensive marketplace solution enabling service providers to showcase their expertise while connecting them with customers seeking professional consultations.' },
+             livetips: { category: 'Web App', title: 'LiveTips', description: 'Real-time donation platform for content creators with live streaming integration and instant alerts.', features: ['Live streaming integration', 'Real-time notifications', 'Multiple payment methods', 'Donor leaderboards', 'Donation history tracking'], tech: ['Laravel 12', 'SQLite', 'Server-Sent Events', 'Stripe'], details: 'A donation platform designed specifically for content creators, providing real-time updates when viewers send tips during streams.' },
+             ceremonyhub: { category: 'Web App', title: 'CeremonyHub', description: 'Wedding management platform for couples to organize guest lists, timelines, vendors, and budgets.', features: ['Guest list management', 'Timeline planning', 'Vendor coordination', 'Budget tracking', 'RSVP management'], tech: ['Laravel', 'MySQL', 'Vue.js'], details: 'Comprehensive wedding planning solution that helps couples manage every aspect of their special day from guest invitations to vendor coordination.' },
+             digitalinvite: { category: 'Other', title: 'Digital Invite', description: 'Online wedding invitation system with RSVP tracking, gift registries, and animated greetings.', features: ['Digital invitations', 'RSVP tracking', 'Gift registry integration', 'Animated greetings', 'Guest communication'], tech: ['Laravel', 'Vue.js', 'MySQL'], details: 'Modern digital invitation platform replacing traditional paper invites with interactive online invitations and comprehensive guest management.' },
+             trackfleet: { category: 'SaaS', title: 'TrackFleet', description: 'Fleet management solution for tracking vehicles, driver schedules, maintenance logs, and fuel consumption.', features: ['Real-time GPS tracking', 'Driver schedule management', 'Maintenance scheduling', 'Fuel consumption analytics', 'Route optimization'], tech: ['Laravel', 'Vue.js', 'PostgreSQL', 'Google Maps API'], details: 'Enterprise fleet management system helping companies optimize vehicle utilization, reduce fuel costs, and ensure timely maintenance.' },
+             learnhub: { category: 'Web App', title: 'LearnHub', description: 'Interactive e-learning platform with video courses, quizzes, progress tracking, and certificate generation.', features: ['Video course hosting', 'Interactive quizzes', 'Progress tracking', 'Certificate generation', 'Student analytics'], tech: ['Next.js', 'Prisma ORM', 'Stripe', 'PostgreSQL'], details: 'Comprehensive learning management system enabling educators to create, distribute, and monetize online courses with built-in student engagement tools.' },
+             forecastai: { category: 'AI / ML', title: 'ForecastAI', description: 'AI-powered project outcome prediction system using historical data and risk analysis algorithms.', features: ['Predictive analytics', 'Risk assessment', 'Historical data analysis', 'Real-time predictions', 'Accuracy metrics'], tech: ['Python', 'TensorFlow', 'FastAPI', 'Pandas'], details: 'Machine learning solution that predicts project outcomes and identifies potential risks by analyzing historical project data and patterns.' },
+             freelancehub: { category: 'SaaS', title: 'FreelanceHub', description: 'Freelance marketplace connecting clients with skilled professionals for project-based work and collaborations.', features: ['Freelancer profiles', 'Project matching', 'Escrow payments', 'Review system', 'Contract management'], tech: ['Laravel', 'Vue.js', 'MySQL', 'Payment Gateway'], details: 'Professional marketplace platform connecting businesses with freelancers, featuring secure payments, project management, and quality assurance.' },
+             smartcity: { category: 'Web App', title: 'SmartCity', description: 'Urban management platform for citizen services, public infrastructure monitoring, and government reporting.', features: ['Citizen service portal', 'Infrastructure monitoring', 'Issue reporting system', 'Analytics dashboard', 'Government integration'], tech: ['Laravel', 'PostgreSQL', 'Google Maps API', 'React'], details: 'Government-focused platform enabling citizens to access services, report issues, and participate in urban management while officials monitor city infrastructure.' },
+             factorypro: { category: 'SaaS', title: 'FactoryPro', description: 'Enterprise resource planning system for manufacturing operations including inventory, production, and supply chain.', features: ['Inventory management', 'Production scheduling', 'Supply chain tracking', 'Quality control', 'Reporting & analytics'], tech: ['Laravel', 'Vue.js', 'PostgreSQL', 'Real-time Updates'], details: 'Complete ERP solution for manufacturing facilities, streamlining operations from inventory management to supply chain coordination.' },
+             gamepal: { category: 'Gaming', title: 'GamePal', description: 'Gaming companion platform for finding teammates, scheduling matches, and tracking game statistics.', features: ['Player profiles', 'Team formation', 'Match scheduling', 'Statistics tracking', 'Leaderboards'], tech: ['React', 'Laravel', 'WebSocket', 'MongoDB'], details: 'Community platform for gamers to find teammates, organize matches, and track their gaming statistics across multiple games.' },
+             connectsphere: { category: 'Social', title: 'ConnectSphere', description: 'Social networking platform with user profiles, posts, comments, messaging, and real-time notifications.', features: ['User profiles', 'Feed system', 'Real-time messaging', 'Notifications', 'Media sharing'], tech: ['React', 'Node.js', 'Socket.io', 'MongoDB'], details: 'Full-featured social network enabling users to connect, share content, communicate in real-time, and build communities.' },
+             cryptovault: { category: 'Web3', title: 'CryptoVault', description: 'Secure cryptocurrency wallet with multi-chain support, decentralized finance integration, and advanced security features.', features: ['Multi-chain support', 'DeFi integration', 'Staking capabilities', 'Advanced security', 'Portfolio tracking'], tech: ['Solidity', 'Web3.js', 'Ethereum', 'Smart Contracts'], details: 'Secure cryptocurrency wallet supporting multiple blockchains with integrated DeFi protocols and advanced security measures for digital asset management.' },
+             tokenbridge: { category: 'Web3', title: 'TokenBridge', description: 'Cross-chain token bridge enabling seamless asset transfers between blockchain networks with automated validation.', features: ['Cross-chain transfers', 'Smart contract validation', 'Automated execution', 'Gas optimization', 'Transaction tracking'], tech: ['Solidity', 'Smart Contracts', 'Hardhat', 'Web3.js'], details: 'Blockchain bridge protocol enabling secure and efficient token transfers between different blockchain networks with automated smart contract verification.' },
+             smarthub: { category: 'IoT', title: 'SmartHub', description: 'Connected home automation system managing smart devices, energy consumption, and environmental monitoring in real-time.', features: ['Device integration', 'Energy monitoring', 'Automation rules', 'Mobile app control', 'Real-time analytics'], tech: ['Arduino', 'MQTT Protocol', 'Node-RED', 'IoT Sensors'], details: 'Comprehensive IoT platform for smart home automation, enabling users to control devices, monitor energy usage, and optimize home efficiency.' },
+             koperasihub: { category: 'SaaS', title: 'KoperasiHub', description: 'Cooperative management system for tracking member profiles, savings, loans, dividends distribution, and meeting schedules.', features: ['Member management', 'Savings tracking', 'Loan processing', 'Dividend calculation', 'Meeting scheduling'], tech: ['Laravel', 'Vue.js', 'MySQL', 'Reporting Engine'], details: 'Specialized management system for cooperative organizations, automating member services, financial tracking, and administrative operations.' },
+             storehub: { category: 'E-Commerce', title: 'StoreHub', description: 'Multi-vendor e-commerce platform with inventory management, order tracking, payment integration, and seller analytics dashboard.', features: ['Multi-vendor support', 'Inventory management', 'Order tracking', 'Seller analytics', 'Payment processing'], tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Vercel'], details: 'Enterprise e-commerce platform enabling multiple sellers to operate simultaneously with unified inventory management and comprehensive analytics.' },
+             escrowchain: { category: 'Web3', title: 'EscrowChain', description: 'Blockchain-based escrow service for secure transactions between parties with automated smart contract execution and dispute resolution.', features: ['Smart contract escrow', 'Automated execution', 'Dispute resolution', 'Multi-signature support', 'Transaction history'], tech: ['Solidity', 'Web3.js', 'Truffle', 'Smart Contracts'], details: 'Decentralized escrow service using blockchain technology to secure transactions, automate payment release, and resolve disputes transparently.' }
+         };
+
+         // Modal Functions
+         function openModal(projectId) {
+             const project = projectsData[projectId];
+             if (!project) return;
+
+             document.getElementById('modalCategory').textContent = project.category;
+             document.getElementById('modalTitle').textContent = project.title;
+             document.getElementById('modalDescription').textContent = project.description;
+
+             const featuresHtml = project.features.map(f => `<li>${f}</li>`).join('');
+             document.getElementById('modalFeatures').innerHTML = featuresHtml;
+
+             const techHtml = project.tech.map(t => `<div class="modal-tech-tag">${t}</div>`).join('');
+             document.getElementById('modalTechStack').innerHTML = techHtml;
+
+             const detailsSection = document.getElementById('modalDetailsSection');
+             detailsSection.innerHTML = `<h3 class="modal-section-title">About this Project</h3><p class="modal-section-content">${project.details}</p>`;
+
+             document.getElementById('projectModal').classList.add('active');
+             document.body.style.overflow = 'hidden';
+         }
+
+         function closeModal() {
+             document.getElementById('projectModal').classList.remove('active');
+             document.body.style.overflow = 'auto';
+         }
+
+         // Close modal when clicking outside
+         document.getElementById('projectModal').addEventListener('click', (e) => {
+             if (e.target.id === 'projectModal') closeModal();
+         });
+
+         // Close modal with Escape key
+         document.addEventListener('keydown', (e) => {
+             if (e.key === 'Escape') closeModal();
+         });
+
+         // Add click listeners to project cards
+         document.querySelectorAll('.project-card').forEach(card => {
+             card.addEventListener('click', () => {
+                 const projectId = card.dataset.id;
+                 openModal(projectId);
+             });
+         });
+     </script>
+</body>
+</html>

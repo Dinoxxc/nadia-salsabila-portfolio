@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadia Salsabila Melyani | Operations & Administrative Professional | Portfolio</title>
+    <link rel="icon" type="image/png" href="images/logo_Dika_.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph / Facebook -->
+    
+    <!-- Twitter -->
+    
+    <!-- Canonical -->
+    
+    <!-- Google Site Verification (if needed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0C0C0C;
+            --bg-secondary: #141414;
+            --bg-tertiary: #1C1C1C;
+            --text-primary: #FFFFFF;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent: #FFFFFF;
+            --accent-hover: #CCCCCC;
+            --border: #2A2A2A;
+            --primary: #ff66c4;
+            --gradient-1: #ff66c4;
+            --gradient-2: #F7C94B;
+            --gradient-3: #4ECDC4;
+            --nav-bg: rgba(255, 255, 255, 0.05);
+            --nav-border: rgba(255, 255, 255, 0.08);
+        }
+        [data-theme="light"] {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --bg-tertiary: #EBEBEB;
+            --text-primary: #0C0C0C;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #0C0C0C;
+            --accent-hover: #333333;
+            --border: #E0E0E0;
+            --nav-bg: rgba(0, 0, 0, 0.05);
+            --nav-border: rgba(0, 0, 0, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        .bg-tunnel { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -3; background: var(--bg-primary); }
+        .tunnel-lines { position: absolute; top: 50%; left: 50%; width: 200%; height: 200%; transform: translate(-50%, -50%); perspective: 1000px; }
+        .tunnel-line { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%); opacity: 0.04; transform-origin: center; animation: tunnelMove 3s linear infinite; }
+        .tunnel-line:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); animation-duration: 3s; opacity: 0; }
+        .tunnel-line:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); animation-duration: 3.2s; }
+        .tunnel-line:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); animation-duration: 3.1s; opacity: 0; }
+        .tunnel-line:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); animation-duration: 2.9s; }
+        .tunnel-line:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); animation-duration: 3.3s; }
+        .tunnel-line:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); animation-duration: 2.7s; opacity: 0; }
+        .tunnel-line:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); animation-duration: 3.4s; }
+        .tunnel-line:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); animation-duration: 3s; }
+        .tunnel-line:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); animation-duration: 3.2s; opacity: 0; }
+        .tunnel-line:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); animation-duration: 3.1s; }
+        @keyframes tunnelMove { 0% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(0.1); opacity: 0; } 20% { opacity: 0.05; } 80% { opacity: 0.05; } 100% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(2); opacity: 0; } }
+        .tunnel-light { position: fixed; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.06; animation: lightPulse 4s ease-in-out infinite; pointer-events: none; z-index: -2; }
+        @keyframes lightPulse { 0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.2); } }
+        .tunnel-rings { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmax; height: 100vmax; pointer-events: none; z-index: -1; }
+        .ring { position: absolute; top: 50%; left: 50%; border: 1px solid var(--accent); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; animation: ringMove 4s linear infinite; }
+        .ring:nth-child(1) { width: 100px; height: 100px; animation-delay: 0s; }
+        .ring:nth-child(2) { width: 250px; height: 250px; animation-delay: 0.5s; }
+        .ring:nth-child(3) { width: 400px; height: 400px; animation-delay: 1s; }
+        .ring:nth-child(4) { width: 550px; height: 550px; animation-delay: 1.5s; }
+        .ring:nth-child(5) { width: 700px; height: 700px; animation-delay: 2s; }
+        .ring:nth-child(6) { width: 850px; height: 850px; animation-delay: 2.5s; }
+        @keyframes ringMove { 0% { width: 0; height: 0; opacity: 0; } 10% { opacity: 0.2; } 90% { opacity: 0.05; } 100% { width: 100vmax; height: 100vmax; opacity: 0; } }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.5;
+            padding-bottom: 120px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        a { color: inherit; text-decoration: none; }
+        
+        .nav-left-container, .nav-right-container {
+            position: fixed; bottom: clamp(1rem, 2vw, 2rem); z-index: 100;
+            display: flex; align-items: center; gap: clamp(0.15rem, 0.5vw, 0.25rem);
+            padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.6rem, 1.5vw, 0.75rem);
+            background: var(--nav-bg); backdrop-filter: blur(20px);
+            border-radius: 100px; border: 1px solid var(--nav-border);
+            max-width: clamp(90vw, 95vw, 50vw); overflow-x: auto; scrollbar-width: none;
+        }
+        .nav-left-container::-webkit-scrollbar, .nav-right-container::-webkit-scrollbar { display: none; }
+        .nav-left-container { right: 50%; margin-right: clamp(0.5rem, 2vw, 28px); }
+        .nav-right-container { left: 50%; margin-left: clamp(0.5rem, 2vw, 28px); }
+        .nav-item {
+            padding: clamp(0.35rem, 0.8vw, 0.5rem) clamp(0.6rem, 1.2vw, 0.9rem); 
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem); font-weight: 500;
+            color: var(--text-secondary); border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; flex-shrink: 0;
+        }
+        .nav-item:hover { color: var(--text-primary); }
+        .nav-item.active { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+        .nav-home {
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            padding: 0 !important; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 50%; position: fixed; bottom: 2rem; left: 50%;
+            transform: translateX(-50%); z-index: 101; flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .nav-home i { font-size: 1.2rem; color: white; }
+        .nav-home:hover { transform: translateX(-50%) scale(1.15); }
+        
+        .theme-toggle {
+            width: 60px; height: 32px; display: flex; align-items: center; justify-content: center;
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px;
+            cursor: pointer; margin-left: 0.25rem; padding: 0 0.5rem; transition: all 0.3s; flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .theme-toggle i { font-size: 1rem; color: var(--text-primary); transition: color 0.3s; }
+         .nav-item-icon { width: 60px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; flex-shrink: 0; margin-right: 0.25rem; padding: 0; }
+         .nav-item-icon i { font-size: 1rem; color: var(--text-primary); }
+         
+         /* Hamburger Menu */
+         .hamburger-menu { display: none; position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; z-index: 102; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all 0.3s; }
+         .hamburger-menu:hover { background: var(--bg-tertiary); }
+         .hamburger-line { width: 24px; height: 2px; background: var(--text-primary); border-radius: 1px; transition: all 0.3s; }
+         .hamburger-menu.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+         .hamburger-menu.active .hamburger-line:nth-child(2) { opacity: 0; }
+         .hamburger-menu.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+         
+         .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-primary); z-index: 101; flex-direction: column; padding-top: 100px; padding-bottom: 120px; overflow-y: auto; animation: slideIn 0.3s ease; }
+         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+         .mobile-menu.active { display: flex; }
+         .mobile-menu-item { padding: 1rem 2rem; font-size: 1.1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+         .mobile-menu-item:hover, .mobile-menu-item:active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-item.active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-theme { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; justify-content: space-between; border-top: 1px solid var(--border); margin-top: auto; }
+         .mobile-menu-theme-label { font-size: 0.95rem; }
+         
+         [data-theme="light"] .logo-img-dark { display: none; }
+         [data-theme="light"] .logo-img-light { display: inline; }
+         .logo-img-light { display: none; }
+        
+        .logo {
+            position: fixed; top: clamp(1rem, 3vw, 2rem); left: clamp(1rem, 3vw, 2rem); font-size: 1.25rem; font-weight: 600;
+            letter-spacing: -0.02em; z-index: 100; color: var(--text-primary); transition: opacity 0.3s;
+        }
+        .logo:hover { opacity: 0.7; }
+        .logo img { height: clamp(50px, 10vw, 80px); max-width: 100%; }
+        [data-theme="light"] .logo-img-dark { display: none; }
+        [data-theme="light"] .logo-img-light { display: inline; }
+        .logo-img-light { display: none; }
+        
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem); position: relative;
+        }
+        .hero-badge { margin-bottom: clamp(1rem, 3vw, 2rem); }
+        .hero p { font-size: clamp(0.9rem, 2.5vw, 1.125rem); color: var(--text-secondary); max-width: 480px; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+        .hero-cta { display: flex; gap: clamp(0.5rem, 2vw, 1rem); flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: clamp(0.7rem, 1.5vw, 0.875rem) clamp(1.2rem, 2.5vw, 1.75rem);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem); font-weight: 500; border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
+        }
+        .btn-primary { background: var(--text-primary); color: var(--bg-primary); border: none; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--bg-secondary); border-color: var(--text-secondary); }
+        
+        .scroll-hint {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+            color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+        }
+        .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text-secondary), transparent); animation: scrollLine 2s infinite; }
+        @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+        
+        section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
+        .section-header { margin-bottom: clamp(2rem, 5vw, 4rem); text-align: center; }
+         .section-label { display: inline-block; font-size: clamp(0.65rem, 1.5vw, 0.75rem); letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: clamp(0.75rem, 2vw, 1rem); }
+         .section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; text-align: center; }
+        
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 70vw, 280px), 1fr)); gap: clamp(1.5rem, 3vw, 2rem); margin-top: clamp(2rem, 4vw, 3rem); }
+        .preview-card {
+            position: relative; padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex; flex-direction: column; gap: clamp(0.75rem, 2vw, 1rem); overflow: hidden;
+        }
+        .preview-card:hover { transform: translateY(-8px); border-color: var(--text-secondary); background: var(--bg-tertiary); }
+        .preview-icon {
+            width: clamp(48px, 10vw, 64px); height: clamp(48px, 10vw, 64px); display: flex; align-items: center; justify-content: center;
+            border-radius: 16px; font-size: clamp(1.5rem, 3vw, 2rem); color: white; margin-bottom: 0.5rem;
+        }
+        .preview-card h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); font-family: 'DM Sans', sans-serif; font-weight: 600; margin: 0; }
+        .preview-card p { color: var(--text-secondary); font-size: clamp(0.8rem, 1.5vw, 0.9rem); line-height: 1.6; flex-grow: 1; }
+        
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 70vw, 300px), 1fr)); gap: clamp(1.5rem, 3vw, 2rem); }
+        .skill-category { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: clamp(1.5rem, 3vw, 2rem); }
+        .skill-category h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 600; margin-bottom: clamp(1rem, 2vw, 1.5rem); display: flex; align-items: center; gap: 0.75rem; }
+        .skill-tag { padding: clamp(0.35rem, 1vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; font-size: clamp(0.75rem, 1.5vw, 0.85rem); color: var(--text-secondary); transition: all 0.3s; }
+        
+        footer { margin-top: clamp(4rem, 8vw, 8rem); padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.5rem, 3vw, 3rem); }
+        .footer-content { max-width: 1400px; margin: 0 auto; border-top: 1px solid var(--border); }
+        .footer-main { display: flex; justify-content: space-between; align-items: center; padding: clamp(1.5rem, 3vw, 3rem) 0; gap: clamp(1.5rem, 3vw, 3rem); flex-wrap: wrap; }
+        .footer-left { display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.5rem); flex-direction: column-reverse; text-align: center; }
+        .footer-brand { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-family: 'DM Sans', sans-serif; font-weight: 600; }
+        .footer-tagline { font-size: clamp(0.75rem, 1.5vw, 0.85rem); color: var(--text-muted); }
+        .footer-links { display: flex; align-items: center; gap: clamp(0.5rem, 1vw, 0.75rem); flex: 1; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: clamp(0.75rem, 1.5vw, 0.85rem); color: var(--text-secondary); transition: color 0.3s; font-weight: 500; }
+        .footer-social { display: flex; gap: clamp(0.3rem, 1vw, 0.5rem); }
+        .footer-social a { width: clamp(32px, 6vw, 36px); height: clamp(32px, 6vw, 36px); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all 0.3s; border-radius: 8px; }
+        .footer-social i { font-size: clamp(0.9rem, 2vw, 1.1rem); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: clamp(1rem, 2vw, 2rem) 0 0; border-top: 1px solid var(--border); gap: clamp(1rem, 2vw, 2rem); flex-wrap: wrap; }
+        .footer-credits { font-size: clamp(0.75rem, 1.5vw, 0.85rem); color: var(--text-muted); }
+        .footer-badge { display: flex; align-items: center; gap: 0.4rem; font-size: clamp(0.7rem, 1.5vw, 0.8rem); color: var(--text-muted); }
+        
+        #badgeText { font-size: clamp(3rem, 12vw, 8rem); font-family: 'DM Serif Display', serif; color: var(--text-primary); border-right: 4px solid var(--text-primary); padding-right: 8px; animation: blink-cursor 0.8s infinite; }
+        @keyframes blink-cursor { 0%, 100% { border-color: var(--text-primary); } 50% { border-color: transparent; } }
+        
+         @media (max-width: 480px) {
+             body { padding-bottom: clamp(5rem, 10vw, 8rem); }
+             .logo { z-index: 50; }
+             .hero-cta { gap: 0.5rem; }
+             .footer-main { flex-direction: column; text-align: center; }
+             .footer-left { flex-direction: column-reverse; }
+             .footer-bottom { flex-direction: column; gap: 0.5rem; }
+             .nav-left-container, .nav-right-container, .nav-home { display: none; }
+             .hamburger-menu { display: flex; }
+         }
+        
+        @media (max-width: 768px) {
+            .preview-grid, .skills-grid { grid-template-columns: 1fr; }
+            .footer-main { flex-direction: column; text-align: center; }
+            .footer-left { flex-direction: column; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+            .nav-left-container, .nav-right-container { max-width: 85vw; }
+            .nav-item { padding: 0.35rem 0.6rem; font-size: 0.6rem; }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .preview-grid, .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-left-container, .nav-right-container { max-width: 55vw; }
+        }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RW4YNKR1FY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RW4YNKR1FY');
+    </script>
+</head>
+ <body>
+    <!-- Schema.org JSON-LD Markup -->
+    
+    <!-- Organization Schema -->
+    
+    <div class="bg-tunnel">
+        <div class="tunnel-lines">
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+        </div>
+        <div class="tunnel-light"></div>
+        <div class="tunnel-rings">
+            <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        </div>
+    </div>
+
+    <a href="/" class="logo">
+        <img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark">
+        <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light">
+    </a>
+
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </button>
+
+    <!-- Mobile Menu (Mobile Only) -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="/about" class="mobile-menu-item">About</a>
+        <a href="/education" class="mobile-menu-item">Education</a>
+        <a href="/experience" class="mobile-menu-item">Experience</a>
+        <a href="/projects" class="mobile-menu-item">Projects</a>
+        <a href="/articles" class="mobile-menu-item">Articles</a>
+        <a href="/contact" class="mobile-menu-item">Contact</a>
+        <a href="/cv" target="_blank" class="mobile-menu-item">Download CV</a>
+        <div class="mobile-menu-theme">
+            <span class="mobile-menu-theme-label">Theme:</span>
+            <button id="mobileThemeToggle" class="theme-toggle" onclick="toggleTheme()" style="margin-left: 0;"><i class="ph ph-moon"></i></button>
+        </div>
+    </nav>
+
+    <nav class="nav-left-container">
+        <a href="/cv" target="_blank" class="nav-item nav-item-icon" title="Preview CV"><i class="ph ph-file-text"></i></a>
+        <a href="/about" class="nav-item">About</a>
+        <a href="/education" class="nav-item">Education</a>
+        <a href="/experience" class="nav-item">Experience</a>
+    </nav>
+
+    <nav class="nav-right-container">
+        <a href="/projects" class="nav-item">Projects</a>
+        <a href="/articles" class="nav-item">Articles</a>
+        <a href="/contact" class="nav-item">Contact</a>
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()"><i class="ph ph-moon"></i></button>
+    </nav>
+    <a href="/" class="nav-home"><i class="ph ph-house"></i></a>
+
+    <section class="hero">
+        <div class="hero-badge"><span id="badgeText">Available for Work</span></div>
+         <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Operations & Administrative Professional</p>
+         <p style="font-size: 1rem; color: var(--text-secondary);">Individu dengan pengalaman di bidang operasional bisnis, pelayanan pelanggan, dan administrasi keuangan. Memiliki kemampuan komunikasi yang baik, disiplin tinggi, serta keterampilan manajerial dasar</p>
+        <div class="hero-cta">
+            <a href="/projects" class="btn btn-primary"><i class="ph ph-folder-open"></i> View Projects</a>
+            <a href="/cv" target="_blank" class="btn btn-secondary"><i class="ph ph-file-text"></i> Download CV</a>
+            <a href="/contact" class="btn btn-secondary"><i class="ph ph-paper-plane-tilt"></i> Get in Touch</a>
+        </div>
+        <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <p class="section-label">Explore</p>
+            <h2 class="section-title">Discover More</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto 0;">Navigate through my portfolio to learn about my skills, explore my work, and see what I can do for you</p>
+        </div>
+        <div class="preview-grid">
+            <a href="/about" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));"><i class="ph ph-user"></i></div>
+                <h3>About Me</h3>
+                <p>Learn about my journey, skills, and what drives my passion for development</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/projects" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-2), var(--gradient-3));"><i class="ph ph-folder-simple"></i></div>
+                <h3>Projects</h3>
+                <p>Explore my portfolio of web applications, mobile apps, and creative solutions</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/experience" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-3), var(--gradient-1));"><i class="ph ph-briefcase"></i></div>
+                <h3>Resume</h3>
+                <p>View my professional work experience and career history</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/education" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));"><i class="ph ph-graduation-cap"></i></div>
+                <h3>Education</h3>
+                <p>View my academic background, certifications, and achievements</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/articles" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));"><i class="ph ph-article"></i></div>
+                <h3>Blog</h3>
+                <p>Read my thoughts on technology, development, and industry insights</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/contact" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));"><i class="ph ph-chat-circle-dots"></i></div>
+                <h3>Contact</h3>
+                <p>Let's work together! Reach out for collaborations or just to say hello</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="/cv" target="_blank" class="preview-card">
+                <div class="preview-icon" style="background: linear-gradient(135deg, var(--gradient-3), var(--gradient-2));"><i class="ph ph-download-simple"></i></div>
+                <h3>Download CV</h3>
+                <p>Get a copy of my complete resume in PDF format</p>
+                <span class="preview-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Core Competencies</h2>
+        </div>
+         <div class="skills-grid">
+             <div class="skill-category">
+                 <h3><i class="ph ph-briefcase"></i> Operasional</h3>
+                 <div class="skill-tags">
+                     <span class="skill-tag">Operasional Toko</span>
+                     <span class="skill-tag">Manajemen Stok</span>
+                     <span class="skill-tag">Strategi Pemasaran</span>
+                     <span class="skill-tag">Pengelolaan Transaksi</span>
+                 </div>
+             </div>
+             <div class="skill-category">
+                 <h3><i class="ph ph-pencil-ruler"></i> Administrasi</h3>
+                 <div class="skill-tags">
+                     <span class="skill-tag">Administrasi Keuangan</span>
+                     <span class="skill-tag">Pencatatan Arus Kas</span>
+                     <span class="skill-tag">Penggajian Karyawan</span>
+                     <span class="skill-tag">Laporan Keuangan</span>
+                 </div>
+             </div>
+             <div class="skill-category">
+                 <h3><i class="ph ph-chart-line-up"></i> Pelayanan & Komunikasi</h3>
+                 <div class="skill-tags">
+                     <span class="skill-tag">Pelayanan Pelanggan</span>
+                     <span class="skill-tag">Komunikasi</span>
+                     <span class="skill-tag">Manajemen Waktu</span>
+                     <span class="skill-tag">Kerja Tim</span>
+                 </div>
+             </div>
+         </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-left">
+                    <img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 45px; margin-bottom: 0.5rem;">
+                    <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 45px; margin-bottom: 0.5rem;">
+                     <span class="footer-tagline">Operations & Administrative Professional</span>
+                </div>
+                <div class="footer-links">
+                    <a href="/about">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/education">Education</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/experience">Experience</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/projects">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/articles">Articles</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/contact">Contact</a>
+                </div>
+                 <div class="footer-social">
+                     <a href="https://wa.me/6282122069115" target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
+                     <a href="mailto:nadiasalsabilaa3900@gmail.com"><i class="ph ph-envelope"></i></a>
+                 </div>
+            </div>
+            <div class="footer-bottom">
+                 <p class="footer-credits">© 2026 Nadia Salsabila Melyani. All rights reserved.</p>
+                <div class="footer-badge"><i class="ph ph-heart"></i><span>Made with passion</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.getElementById('themeToggle');
+            if (btn) {
+                const icon = btn.querySelector('i');
+                if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                else icon.className = 'ph ph-moon';
+            }
+            const mobileBtn = document.getElementById('mobileThemeToggle');
+            if (mobileBtn) {
+                const icon = mobileBtn.querySelector('i');
+                if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                else icon.className = 'ph ph-moon';
+            }
+        }
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon();
+
+        // Hamburger Menu
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', () => {
+                hamburgerMenu.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    hamburgerMenu.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-menu')) {
+                    hamburgerMenu.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        const badgeText = document.getElementById('badgeText');
+        if (badgeText) {
+            const texts = ['Available for Work', 'Open for Freelance', 'Seeking Collaboration', 'Ready for Projects', 'Open to Opportunities'];
+            let textIndex = 0, charIndex = 0, isDeleting = false;
+            function typeWriter() {
+                const currentText = texts[textIndex];
+                if (isDeleting) { badgeText.textContent = currentText.substring(0, charIndex - 1); charIndex--; }
+                else { badgeText.textContent = currentText.substring(0, charIndex + 1); charIndex++; }
+                if (!isDeleting && charIndex === currentText.length) { isDeleting = true; setTimeout(typeWriter, 2000); }
+                else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % texts.length; setTimeout(typeWriter, 500); }
+                else setTimeout(typeWriter, isDeleting ? 50 : 100);
+            }
+            typeWriter();
+        }
+    </script>
+</body>
+</html>

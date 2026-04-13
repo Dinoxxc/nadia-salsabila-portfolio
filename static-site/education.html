@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Nadia Salsabila Melyani | SMK Negeri 1 Pandeglang - Tata Boga</title>
+    <link rel="icon" type="image/png" href="images/logo_Dika_.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph -->
+    
+    <!-- Canonical -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root { --bg-primary: #0C0C0C; --bg-secondary: #141414; --bg-tertiary: #1C1C1C; --text-primary: #FFFFFF; --text-secondary: #888888; --text-muted: #555555; --border: #2A2A2A; --gradient-1: #ff66c4; --gradient-2: #F7C94B; --gradient-3: #4ECDC4; --nav-bg: rgba(255, 255, 255, 0.05); --nav-border: rgba(255, 255, 255, 0.08);
+            --accent: #FFFFFF;}
+        [data-theme="light"] {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --bg-tertiary: #EBEBEB;
+            --text-primary: #0C0C0C;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #0C0C0C;
+            --accent-hover: #333333;
+            --border: #E0E0E0;
+            --nav-bg: rgba(0, 0, 0, 0.05);
+            --nav-border: rgba(0, 0, 0, 0.08);
+        }
+        .bg-tunnel { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -3; background: var(--bg-primary); }
+        .tunnel-lines { position: absolute; top: 50%; left: 50%; width: 200%; height: 200%; transform: translate(-50%, -50%); perspective: 1000px; }
+        .tunnel-line { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%); opacity: 0.04; transform-origin: center; animation: tunnelMove 3s linear infinite; }
+        .tunnel-line:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); animation-duration: 3s; opacity: 0; }
+        .tunnel-line:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); animation-duration: 3.2s; }
+        .tunnel-line:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); animation-duration: 3.1s; opacity: 0; }
+        .tunnel-line:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); animation-duration: 2.9s; }
+        .tunnel-line:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); animation-duration: 3.3s; }
+        .tunnel-line:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); animation-duration: 2.7s; opacity: 0; }
+        .tunnel-line:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); animation-duration: 3.4s; }
+        .tunnel-line:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); animation-duration: 3s; }
+        .tunnel-line:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); animation-duration: 3.2s; opacity: 0; }
+        .tunnel-line:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); animation-duration: 3.1s; }
+        @keyframes tunnelMove { 0% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(0.1); opacity: 0; } 20% { opacity: 0.05; } 80% { opacity: 0.05; } 100% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(2); opacity: 0; } }
+        .tunnel-light { position: fixed; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.06; animation: lightPulse 4s ease-in-out infinite; pointer-events: none; z-index: -2; }
+        @keyframes lightPulse { 0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.2); } }
+        .tunnel-rings { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmax; height: 100vmax; pointer-events: none; z-index: -1; }
+        .ring { position: absolute; top: 50%; left: 50%; border: 1px solid var(--accent); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; animation: ringMove 4s linear infinite; }
+        .ring:nth-child(1) { width: 100px; height: 100px; animation-delay: 0s; }
+        .ring:nth-child(2) { width: 250px; height: 250px; animation-delay: 0.5s; }
+        .ring:nth-child(3) { width: 400px; height: 400px; animation-delay: 1s; }
+        .ring:nth-child(4) { width: 550px; height: 550px; animation-delay: 1.5s; }
+        .ring:nth-child(5) { width: 700px; height: 700px; animation-delay: 2s; }
+        .ring:nth-child(6) { width: 850px; height: 850px; animation-delay: 2.5s; }
+        @keyframes ringMove { 0% { width: 0; height: 0; opacity: 0; } 10% { opacity: 0.2; } 90% { opacity: 0.05; } 100% { width: 100vmax; height: 100vmax; opacity: 0; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; line-height: 1.5; padding-bottom: 120px; }
+        h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.1; }
+        a { color: inherit; text-decoration: none; }
+        .mini-hero { padding: 6rem 2rem 4rem; text-align: center; }
+        .mini-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .mini-hero p { color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+        section { max-width: 1200px; margin: 0 auto; }
+        .section-header { margin-bottom: 4rem; text-align: center; }
+        .section-label { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+        
+        .resume-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 3rem); max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 2vw, 2rem); }
+        .resume-section { margin-bottom: clamp(2rem, 4vw, 3rem); }
+         .resume-section h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 600; margin-bottom: clamp(1.5rem, 2.5vw, 2rem); display: flex; align-items: center; gap: clamp(0.5rem, 1vw, 0.75rem); padding-bottom: clamp(0.75rem, 1.5vw, 1rem); border-bottom: 1px solid var(--border); }
+        .resume-section h3 i { color: var(--gradient-1); font-size: clamp(1.25rem, 1.5vw, 1.5rem); }
+        
+        .education-cards { display: flex; flex-direction: column; gap: clamp(1rem, 2vw, 1.5rem); }
+        .edu-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+        .edu-card:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+         .edu-card-header { display: flex; align-items: flex-start; gap: clamp(0.75rem, 1.5vw, 1rem); padding: clamp(1rem, 2vw, 1.5rem); background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary)); border-bottom: 1px solid var(--border); }
+        .edu-icon { width: clamp(40px, 8vw, 48px); height: clamp(40px, 8vw, 48px); display: flex; align-items: center; justify-content: center; background: var(--bg-primary); border-radius: 12px; font-size: clamp(1.25rem, 1.5vw, 1.5rem); color: var(--gradient-1); flex-shrink: 0; }
+        .edu-info { flex: 1; }
+        .edu-info h4 { font-family: 'DM Sans', sans-serif; font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 600; margin-bottom: clamp(0.15rem, 0.5vw, 0.25rem); }
+        .edu-school { color: var(--text-secondary); font-size: clamp(0.8rem, 1.2vw, 0.9rem); }
+         .edu-year { padding: clamp(0.3rem, 0.75vw, 0.375rem) clamp(0.6rem, 1vw, 0.75rem); background: var(--gradient-1); color: var(--bg-primary); border-radius: 50px; font-size: clamp(0.7rem, 1vw, 0.8rem); font-weight: 600; white-space: nowrap; flex-shrink: 0; margin-left: auto; }
+        .edu-card-body { padding: clamp(1rem, 1.5vw, 1.25rem) clamp(1rem, 1.5vw, 1.5rem); }
+         .edu-highlights { margin: 0; padding-left: clamp(1rem, 1.5vw, 1.25rem); margin-bottom: clamp(0.75rem, 1.5vw, 1rem); }
+        .edu-highlights li { color: var(--text-secondary); font-size: clamp(0.8rem, 1.2vw, 0.9rem); line-height: 1.6; margin-bottom: clamp(0.35rem, 0.75vw, 0.5rem); }
+        
+        .cert-grid { display: grid; grid-template-columns: 1fr; gap: clamp(0.75rem, 1.5vw, 1rem); }
+        .cert-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: clamp(1rem, 1.5vw, 1.25rem); transition: all 0.3s; }
+        .cert-card:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+        .cert-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(0.5rem, 1vw, 0.75rem); }
+        .cert-header i { font-size: clamp(1.25rem, 1.5vw, 1.5rem); color: var(--gradient-1); }
+        .cert-year { font-size: clamp(0.65rem, 1vw, 0.75rem); color: var(--text-muted); font-weight: 500; }
+        .cert-card h4 { font-family: 'DM Sans', sans-serif; font-size: clamp(0.85rem, 1.2vw, 0.95rem); font-weight: 600; margin-bottom: clamp(0.15rem, 0.5vw, 0.25rem); line-height: 1.4; }
+        .cert-card p { color: var(--text-secondary); font-size: clamp(0.7rem, 1vw, 0.8rem); }
+        
+        .sidebar-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: clamp(1rem, 1.5vw, 1.5rem); margin-bottom: clamp(1rem, 1.5vw, 1.5rem); }
+        .sidebar-section:last-child { margin-bottom: 0; }
+        .sidebar-section h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(0.9rem, 1.3vw, 1rem); font-weight: 600; margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem); display: flex; align-items: center; gap: clamp(0.35rem, 0.75vw, 0.5rem); }
+        .sidebar-section h3 i { color: var(--gradient-1); font-size: clamp(1rem, 1.25vw, 1.25rem); }
+        .course-tags { display: flex; flex-wrap: wrap; gap: clamp(0.35rem, 0.75vw, 0.5rem); }
+        .course-tags span { padding: clamp(0.3rem, 0.6vw, 0.375rem) clamp(0.6rem, 1vw, 0.75rem); background: var(--bg-tertiary); border-radius: 50px; font-size: clamp(0.65rem, 1vw, 0.75rem); color: var(--text-secondary); }
+        .hard-skills-grid { display: grid; grid-template-columns: 1fr; gap: clamp(0.5rem, 1vw, 0.75rem); }
+        .hard-skill-item { display: flex; align-items: center; gap: clamp(0.5rem, 1vw, 0.75rem); font-size: clamp(0.75rem, 1.1vw, 0.85rem); padding: clamp(0.4rem, 0.75vw, 0.5rem) clamp(0.6rem, 1vw, 0.75rem); background: var(--bg-tertiary); border-radius: 8px; }
+        .hard-skill-item i { font-size: 1rem; color: var(--gradient-1); }
+        .lang-cards { display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 0.75rem); }
+        .lang-card { display: flex; align-items: center; gap: clamp(0.75rem, 1.5vw, 1rem); padding: clamp(0.75rem, 1.5vw, 1rem); background: var(--bg-tertiary); border-radius: 12px; }
+        .lang-flag { font-size: clamp(1.5rem, 2vw, 2rem); line-height: 1; }
+        .lang-details { flex: 1; }
+        .lang-details h4 { font-family: 'DM Sans', sans-serif; font-size: clamp(0.85rem, 1.2vw, 0.95rem); font-weight: 600; margin-bottom: clamp(0.15rem, 0.3vw, 0.25rem); }
+        .lang-stars { display: flex; gap: 0.15rem; margin-bottom: clamp(0.15rem, 0.3vw, 0.25rem); }
+        .lang-stars i { font-size: clamp(0.7rem, 1vw, 0.85rem); color: #fbbf24; }
+        .lang-stars i.ph-star { color: var(--text-muted); }
+        .lang-details span { font-size: clamp(0.65rem, 1vw, 0.75rem); color: var(--text-muted); }
+        
+                .nav-left-container, .nav-right-container {
+            position: fixed; bottom: 2rem; z-index: 100;
+            display: flex; align-items: center; gap: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--nav-bg); backdrop-filter: blur(20px);
+            border-radius: 100px; border: 1px solid var(--nav-border);
+            max-width: 45vw; overflow-x: auto; scrollbar-width: none;
+        }
+        .nav-left-container::-webkit-scrollbar, .nav-right-container::-webkit-scrollbar { display: none; }
+        .nav-left-container { right: 50%; margin-right: 28px; }
+        .nav-right-container { left: 50%; margin-left: 28px; flex-shrink: 0; }
+        .nav-item {
+            padding: 0.5rem 0.9rem; font-size: 0.75rem; font-weight: 500;
+            color: var(--text-secondary); border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; flex-shrink: 0;
+        }
+        .nav-item:hover { color: var(--text-primary); }
+        .nav-item.active { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+        .nav-home { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; padding: 0; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); border-radius: 50%; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 101; flex-shrink: 0; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+        .nav-home i { font-size: 1.2rem; color: white; }
+        .nav-home:hover { transform: translateX(-50%) scale(1.15); }
+        .theme-toggle {
+            width: 60px; height: 32px; display: flex; align-items: center; justify-content: center;
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px;
+            cursor: pointer; margin-left: 0.25rem; padding: 0 0.5rem; transition: all 0.3s; flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .theme-toggle i { font-size: 1rem; color: var(--text-primary); transition: color 0.3s; }
+        .nav-item-icon { width: 60px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; flex-shrink: 0; margin-right: 0.25rem; padding: 0; }
+         .nav-item-icon i { font-size: 1rem; color: var(--text-primary); }
+         
+         /* Hamburger Menu */
+         .hamburger-menu { display: none; position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; z-index: 102; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all 0.3s; }
+         .hamburger-menu:hover { background: var(--bg-tertiary); }
+         .hamburger-line { width: 24px; height: 2px; background: var(--text-primary); border-radius: 1px; transition: all 0.3s; }
+         .hamburger-menu.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+         .hamburger-menu.active .hamburger-line:nth-child(2) { opacity: 0; }
+         .hamburger-menu.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+         
+         .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-primary); z-index: 101; flex-direction: column; padding-top: 100px; padding-bottom: 120px; overflow-y: auto; animation: slideIn 0.3s ease; }
+         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+         .mobile-menu.active { display: flex; }
+         .mobile-menu-item { padding: 1rem 2rem; font-size: 1.1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+         .mobile-menu-item:hover, .mobile-menu-item:active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-item.active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-theme { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; justify-content: space-between; border-top: 1px solid var(--border); margin-top: auto; }
+         .mobile-menu-theme-label { font-size: 0.95rem; }
+        
+        .logo { position: fixed; top: 2rem; left: 2rem; font-size: 1.25rem; font-weight: 600; z-index: 100; }
+        [data-theme="light"] .logo-img-dark { display: none; }
+        [data-theme="light"] .logo-img-light { display: inline; }
+        .logo-img-light { display: none; }
+        
+        footer { margin-top: 8rem; padding: 0 2rem 3rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; border-top: 1px solid var(--border); }
+        .footer-main { display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; gap: 3rem; }
+        .footer-left { display: flex; align-items: center; gap: 1.5rem; }
+        .footer-tagline { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-links { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links .footer-separator { font-size: 0.75rem; color: var(--text-muted); opacity: 0.5; }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all 0.3s; border-radius: 8px; }
+        .footer-social a:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0 0; border-top: 1px solid var(--border); }
+        .footer-credits { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-badge { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-muted); }
+        
+         @media (max-width: 480px) {
+             .nav-left-container, .nav-right-container, .nav-home { display: none; }
+             .hamburger-menu { display: flex; }
+             .resume-grid { grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); padding: 0 clamp(0.75rem, 1.5vw, 1rem); }
+             .edu-card-header { flex-direction: column; }
+             .cert-grid { grid-template-columns: 1fr; }
+             .sidebar-section { padding: clamp(0.75rem, 1.5vw, 1rem); margin-bottom: clamp(0.75rem, 1.5vw, 1rem); }
+         }
+        @media (max-width: 768px) {
+            .resume-grid { grid-template-columns: 1fr; gap: clamp(1.5rem, 2.5vw, 2rem); padding: 0 clamp(1rem, 1.5vw, 1.5rem); }
+            .edu-card-header { flex-direction: column; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .footer-main { flex-direction: column; text-align: center; }
+            .footer-left { flex-direction: column; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+            .nav-left-container, .nav-right-container { max-width: 40vw; }
+            .nav-item { padding: 0.4rem 0.6rem; font-size: 0.65rem; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .resume-grid { grid-template-columns: 1fr clamp(220px, 25%, 280px); gap: clamp(1.5rem, 2.5vw, 2rem); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1025px) {
+            .resume-grid { grid-template-columns: 1fr 320px; gap: 3rem; }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RW4YNKR1FY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RW4YNKR1FY');
+    </script>
+</head>
+<body>
+    <div class="bg-tunnel">
+        <div class="tunnel-lines">
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+        </div>
+        <div class="tunnel-light"></div>
+        <div class="tunnel-rings">
+            <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        </div>
+    </div>
+
+    <a href="/" class="logo">
+         <img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 80px;">
+         <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 80px;">
+     </a>
+     
+     <!-- Hamburger Menu Button (Mobile Only) -->
+     <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+     </button>
+     
+     <!-- Mobile Menu (Mobile Only) -->
+     <nav class="mobile-menu" id="mobileMenu">
+         <a href="/about" class="mobile-menu-item">About</a>
+         <a href="/education" class="mobile-menu-item">Education</a>
+         <a href="/experience" class="mobile-menu-item">Experience</a>
+         <a href="/projects" class="mobile-menu-item">Projects</a>
+         <a href="/articles" class="mobile-menu-item">Articles</a>
+         <a href="/contact" class="mobile-menu-item">Contact</a>
+         <a href="/cv" target="_blank" class="mobile-menu-item">Download CV</a>
+         <div class="mobile-menu-theme">
+             <span class="mobile-menu-theme-label">Theme:</span>
+             <button id="mobileThemeToggle" class="theme-toggle" onclick="toggleTheme()" style="margin-left: 0;"><i class="ph ph-moon"></i></button>
+         </div>
+     </nav>
+     
+     <nav class="nav-left-container">
+        <a href="/cv" target="_blank" class="nav-item nav-item-icon" title="Preview CV"><i class="ph ph-file-text"></i></a>
+        <a href="/about" class="nav-item">About</a>
+        <a href="/education" class="nav-item">Education</a>
+        <a href="/experience" class="nav-item">Experience</a>
+    </nav>
+
+    <nav class="nav-right-container">
+        <a href="/projects" class="nav-item">Projects</a>
+        <a href="/articles" class="nav-item">Articles</a>
+        <a href="/contact" class="nav-item">Contact</a>
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()"><i class="ph ph-moon"></i></button>
+    </nav>
+    <a href="/" class="nav-home"><i class="ph ph-house"></i></a>
+
+     <div class="mini-hero"><h1>Education</h1><p>Latar belakang pendidikan dan sertifikasi</p></div>
+
+    <section style="padding-top: 4rem;">
+        <div class="resume-grid">
+            <div class="resume-main">
+                <div class="resume-section">
+                    <h3><i class="ph ph-graduation-cap"></i> Education</h3>
+                    <div class="education-cards">
+                         <div class="edu-card"><div class="edu-card-header"><div class="edu-icon"><i class="ph ph-graduation-cap"></i></div><div class="edu-info"><h4>SMK Negeri 1 Pandeglang</h4><p class="edu-school">Bidang Keahlian: Tata Boga</p></div><span class="edu-year">2019 - 2022</span></div><div class="edu-card-body"><ul class="edu-highlights"><li>Menyelesaikan program pendidikan kejuruan dengan fokus pada culinary arts dan food service management</li><li>Memperoleh keterampilan praktis dalam pengelolaan dapur, pelayanan makanan dan minuman, serta standar kebersihan industri food & beverage</li><li>Lulus dengan sertifikat kompetensi di bidang Tata Boga</li></ul></div></div>
+                     </div>
+                </div>
+                <div class="resume-section">
+                     <h3><i class="ph ph-certificate"></i> Sertifikat</h3>
+                     <div class="cert-grid">
+                         <div class="cert-card"><div class="cert-header"><i class="ph ph-certificate"></i><span class="cert-year">2022</span></div><h4>Food & Beverage</h4><p>Le Dian Hotel & Cottages</p></div>
+                         <div class="cert-card"><div class="cert-header"><i class="ph ph-chef"></i><span class="cert-year">2022</span></div><h4>Tata Boga</h4><p>Le Dian Hotel & Cottages</p></div>
+                         <div class="cert-card"><div class="cert-header"><i class="ph ph-coffee"></i><span class="cert-year">2022</span></div><h4>Coffee Maker Expert</h4><p>Noji Cafe Education</p></div>
+                     </div>
+                </div>
+            </div>
+            <div class="resume-sidebar">
+                 <div class="sidebar-section"><h3><i class="ph ph-user"></i> About You</h3><div class="profile-card"><p style="color: var(--text-secondary); margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem); line-height: 1.7; font-size: clamp(0.7rem, 0.95vw, 0.8rem);">Individu berpengalaman di bidang operasional bisnis, pelayanan pelanggan, dan administrasi keuangan. Lulusan SMK Negeri 1 Pandeglang bidang Tata Boga dengan pemahaman mendalam tentang standar industri.</p><p style="color: var(--text-secondary); margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem); line-height: 1.7; font-size: clamp(0.7rem, 0.95vw, 0.8rem);">Memiliki kemampuan komunikasi yang baik, disiplin tinggi, dan keterampilan manajerial dasar yang mendukung efisiensi kerja dalam lingkungan yang dinamis.</p></div><div class="about-details" style="margin-top: clamp(1rem, 1.5vw, 1.25rem); padding-top: clamp(1rem, 1.5vw, 1.25rem); border-top: 1px solid var(--border);"><div class="detail-item" style="font-size: clamp(0.75rem, 1.2vw, 0.85rem); color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: clamp(0.5rem, 1vw, 0.75rem);"><i class="ph ph-map-pin" style="font-size: 1rem; color: var(--gradient-1);"></i><span>Jakarta Utara, Indonesia</span></div><div class="detail-item" style="font-size: clamp(0.75rem, 1.2vw, 0.85rem); color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: clamp(0.5rem, 1vw, 0.75rem);"><i class="ph ph-briefcase" style="font-size: 1rem; color: var(--gradient-1);"></i><span>Operations & Administrative Professional</span></div><div class="detail-item" style="font-size: clamp(0.75rem, 1.2vw, 0.85rem); color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;"><i class="ph ph-graduation-cap" style="font-size: 1rem; color: var(--gradient-1);"></i><span>SMK Negeri 1 Pandeglang - Tata Boga</span></div></div></div>
+                 <div class="sidebar-section"><h3><i class="ph ph-tools"></i> Keahlian Utama</h3><div class="course-tags"><span>Operasional Toko</span><span>Pelayanan Pelanggan</span><span>Administrasi Keuangan</span><span>Komunikasi</span><span>Kerja Tim</span><span>Manajemen Waktu</span></div></div>
+                 <div class="sidebar-section"><h3><i class="ph ph-briefcase"></i> Sertifikasi Profesional</h3><div class="course-tags"><span>Food & Beverage Service</span><span>Tata Boga</span><span>Coffee Maker</span><span>Hospitality</span></div></div>
+                 <div class="sidebar-section"><h3><i class="ph ph-brain"></i> Kemampuan Lainnya</h3><div class="course-tags"><span>Disiplin</span><span>Akurasi Tinggi</span><span>Tepat Waktu</span><span>Problem Solving</span><span>Leadership</span></div></div>
+
+                 <div class="sidebar-section"><h3><i class="ph ph-globe"></i> Bahasa</h3><div class="lang-cards"><div class="lang-card"><div class="lang-flag">🇮🇩</div><div class="lang-details"><h4>Indonesian</h4><div class="lang-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><span>Native</span></div></div><div class="lang-card"><div class="lang-flag">🇺🇸</div><div class="lang-details"><h4>English</h4><div class="lang-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph ph-star"></i><i class="ph ph-star"></i></div><span>Intermediate</span></div></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-left"><img src="images/logo_Dika_.png" alt="Nadia" class="logo-img-dark" style="height: 45px; margin-bottom: 0.5rem;">
+                    <img src="images/logo_Dika_1_.png" alt="Nadia" class="logo-img-light" style="height: 45px; margin-bottom: 0.5rem;"><span class="footer-tagline">Operations & Administrative Professional</span></div>
+                <div class="footer-links"><a href="/about">About</a><span class="footer-separator">•</span><a href="/education">Education</a><span class="footer-separator">•</span><a href="/experience">Experience</a><span class="footer-separator">•</span><a href="/projects">Projects</a><span class="footer-separator">•</span><a href="/articles">Articles</a><span class="footer-separator">•</span><a href="/contact">Contact</a></div>
+                 <div class="footer-social"><a href="https://wa.me/6282122069115" target="_blank"><i class="ph ph-whatsapp-logo"></i></a><a href="mailto:nadiasalsabilaa3900@gmail.com"><i class="ph ph-envelope"></i></a></div>
+            </div>
+             <div class="footer-bottom"><p class="footer-credits">© 2026 Nadia Salsabila Melyani. All rights reserved.</p><div class="footer-badge"><i class="ph ph-heart"></i><span>Made with passion</span></div></div>
+        </div>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+             const btn = document.getElementById('themeToggle');
+             if (btn) {
+                 const icon = btn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+             const mobileBtn = document.getElementById('mobileThemeToggle');
+             if (mobileBtn) {
+                 const icon = mobileBtn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+         }
+         const savedTheme = localStorage.getItem('theme') || 'dark';
+         document.documentElement.setAttribute('data-theme', savedTheme);
+         updateThemeIcon();
+         
+         // Hamburger Menu
+         const hamburgerMenu = document.getElementById('hamburgerMenu');
+         const mobileMenu = document.getElementById('mobileMenu');
+         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+         
+         if (hamburgerMenu) {
+             hamburgerMenu.addEventListener('click', () => {
+                 hamburgerMenu.classList.toggle('active');
+                 mobileMenu.classList.toggle('active');
+             });
+         
+             mobileMenuItems.forEach(item => {
+                 item.addEventListener('click', () => {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 });
+             });
+         
+             // Close menu when clicking outside
+             document.addEventListener('click', (e) => {
+                 if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-menu')) {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 }
+             });
+         }
+    </script>
+</body>
+</html>

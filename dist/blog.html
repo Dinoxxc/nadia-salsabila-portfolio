@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals - Dika | Product & Project Manager</title>
+    <link rel="icon" type="image/png" href="images/logo_Dika_.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root { --bg-primary: #0C0C0C; --bg-secondary: #141414; --bg-tertiary: #1C1C1C; --text-primary: #FFFFFF; --text-secondary: #888888; --text-muted: #555555; --border: #2A2A2A; --gradient-1: #ff66c4; --gradient-2: #F7C94B; --gradient-3: #4ECDC4; --nav-bg: rgba(255, 255, 255, 0.05); --nav-border: rgba(255, 255, 255, 0.08);
+            --accent: #FFFFFF;}
+        [data-theme="light"] {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --bg-tertiary: #EBEBEB;
+            --text-primary: #0C0C0C;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #0C0C0C;
+            --accent-hover: #333333;
+            --border: #E0E0E0;
+            --nav-bg: rgba(0, 0, 0, 0.05);
+            --nav-border: rgba(0, 0, 0, 0.08);
+        }
+        .bg-tunnel { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -3; background: var(--bg-primary); }
+        .tunnel-lines { position: absolute; top: 50%; left: 50%; width: 200%; height: 200%; transform: translate(-50%, -50%); perspective: 1000px; }
+        .tunnel-line { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%); opacity: 0.04; transform-origin: center; animation: tunnelMove 3s linear infinite; }
+        .tunnel-line:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); animation-duration: 3s; opacity: 0; }
+        .tunnel-line:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); animation-duration: 3.2s; }
+        .tunnel-line:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); animation-duration: 3.1s; opacity: 0; }
+        .tunnel-line:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); animation-duration: 2.9s; }
+        .tunnel-line:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); animation-duration: 3.3s; }
+        .tunnel-line:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); animation-duration: 2.7s; opacity: 0; }
+        .tunnel-line:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); animation-duration: 3.4s; }
+        .tunnel-line:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); animation-duration: 3s; }
+        .tunnel-line:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); animation-duration: 3.2s; opacity: 0; }
+        .tunnel-line:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); animation-duration: 2.8s; }
+        .tunnel-line:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); animation-duration: 3.1s; }
+        @keyframes tunnelMove { 0% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(0.1); opacity: 0; } 20% { opacity: 0.05; } 80% { opacity: 0.05; } 100% { transform: translate(-50%, -50%) rotate(var(--rotation)) scale(2); opacity: 0; } }
+        .tunnel-light { position: fixed; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.06; animation: lightPulse 4s ease-in-out infinite; pointer-events: none; z-index: -2; }
+        @keyframes lightPulse { 0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.2); } }
+        .tunnel-rings { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmax; height: 100vmax; pointer-events: none; z-index: -1; }
+        .ring { position: absolute; top: 50%; left: 50%; border: 1px solid var(--accent); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; animation: ringMove 4s linear infinite; }
+        .ring:nth-child(1) { width: 100px; height: 100px; animation-delay: 0s; }
+        .ring:nth-child(2) { width: 250px; height: 250px; animation-delay: 0.5s; }
+        .ring:nth-child(3) { width: 400px; height: 400px; animation-delay: 1s; }
+        .ring:nth-child(4) { width: 550px; height: 550px; animation-delay: 1.5s; }
+        .ring:nth-child(5) { width: 700px; height: 700px; animation-delay: 2s; }
+        .ring:nth-child(6) { width: 850px; height: 850px; animation-delay: 2.5s; }
+        @keyframes ringMove { 0% { width: 0; height: 0; opacity: 0; } 10% { opacity: 0.2; } 90% { opacity: 0.05; } 100% { width: 100vmax; height: 100vmax; opacity: 0; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; line-height: 1.5; padding-bottom: 120px; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.1; }
+        a { color: inherit; text-decoration: none; }
+        .mini-hero { padding: 6rem 2rem 4rem; text-align: center; }
+        .mini-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .mini-hero p { color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+        section { max-width: 1200px; margin: 0 auto; }
+        .section-header { margin-bottom: 4rem; text-align: center; }
+        .section-label { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+        
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 2rem); }
+         .blog-featured { grid-column: 1; display: grid; grid-template-columns: 1fr; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.4s; cursor: pointer; }
+         .blog-featured:hover { transform: translateY(-4px); border-color: var(--text-secondary); }
+         .blog-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.4s; cursor: pointer; }
+        .blog-card:hover { transform: translateY(-4px); border-color: var(--text-secondary); }
+        .blog-image { aspect-ratio: 16/10; background: var(--bg-tertiary); }
+        .blog-featured .blog-image { aspect-ratio: auto; height: clamp(200px, 40vh, 280px); min-height: auto; }
+        .blog-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--text-muted); background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); }
+        .blog-content { padding: clamp(1rem, 2vw, 2rem); display: flex; flex-direction: column; }
+        .blog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(0.5rem, 1vw, 1rem); margin-bottom: clamp(0.75rem, 1.5vw, 1rem); font-size: clamp(0.7rem, 1vw, 0.8rem); }
+        .blog-category { background: var(--gradient-1); color: white; padding: 0.25rem 0.75rem; border-radius: 50px; font-weight: 600; }
+        .blog-date, .blog-read { color: var(--text-muted); }
+        .blog-content h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; margin-bottom: clamp(0.5rem, 1vw, 0.75rem); line-height: 1.3; }
+        .blog-featured .blog-content h3 { font-size: clamp(1.35rem, 3vw, 1.75rem); }
+        .blog-content p { color: var(--text-secondary); font-size: clamp(0.8rem, 1.5vw, 0.9rem); line-height: 1.6; flex-grow: 1; margin-bottom: clamp(0.75rem, 1.5vw, 1rem); }
+        .blog-link { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 0.9rem); color: var(--gradient-1); transition: gap 0.3s; }
+        .blog-link:hover { gap: 0.75rem; }
+        .blog-sinta { background: var(--gradient-2); color: var(--bg-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-weight: 600; }
+        .journal-authors { font-size: clamp(0.75rem, 1.1vw, 0.85rem); font-style: italic; color: var(--text-muted); margin-bottom: 0.5rem !important; }
+        .journal-abstract { font-size: clamp(0.8rem, 1.2vw, 0.9rem); color: var(--text-secondary); line-height: 1.6; flex-grow: 1; margin-bottom: 1rem !important; }
+        .journal-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; font-size: clamp(0.7rem, 0.95vw, 0.8rem); color: var(--text-muted); }
+        .journal-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .journal-meta i { color: var(--gradient-1); }
+        
+        .services-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); }
+        .service-card { padding: clamp(1.5rem, 2vw, 2rem); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; transition: all 0.4s; }
+        .service-card:hover { transform: translateY(-4px); border-color: var(--text-secondary); }
+        .service-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border-radius: 12px; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--gradient-1); }
+        .service-card h3 { font-size: clamp(1.05rem, 1.5vw, 1.25rem); margin-bottom: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+        .service-card p { color: var(--text-secondary); font-size: clamp(0.8rem, 1.2vw, 0.9rem); line-height: 1.6; }
+        
+                .nav-left-container, .nav-right-container {
+            position: fixed; bottom: 2rem; z-index: 100;
+            display: flex; align-items: center; gap: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--nav-bg); backdrop-filter: blur(20px);
+            border-radius: 100px; border: 1px solid var(--nav-border);
+            max-width: 45vw; overflow-x: auto; scrollbar-width: none;
+        }
+        .nav-left-container::-webkit-scrollbar, .nav-right-container::-webkit-scrollbar { display: none; }
+        .nav-left-container { right: 50%; margin-right: 28px; }
+        .nav-right-container { left: 50%; margin-left: 28px; flex-shrink: 0; }
+        .nav-item {
+            padding: 0.5rem 0.9rem; font-size: 0.75rem; font-weight: 500;
+            color: var(--text-secondary); border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; flex-shrink: 0;
+        }
+        .nav-item:hover { color: var(--text-primary); }
+        .nav-item.active { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+        .nav-home { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; padding: 0; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); border-radius: 50%; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 101; flex-shrink: 0; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+        .nav-home i { font-size: 1.2rem; color: white; }
+        .nav-home:hover { transform: translateX(-50%) scale(1.15); }
+        .theme-toggle {
+            width: 60px; height: 32px; display: flex; align-items: center; justify-content: center;
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px;
+            cursor: pointer; margin-left: 0.25rem; padding: 0 0.5rem; transition: all 0.3s; flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .theme-toggle i { font-size: 1rem; color: var(--text-primary); transition: color 0.3s; }
+        .nav-item-icon { width: 60px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 50px; flex-shrink: 0; margin-right: 0.25rem; padding: 0; }
+         .nav-item-icon i { font-size: 1rem; color: var(--text-primary); }
+         
+         /* Hamburger Menu */
+         .hamburger-menu { display: none; position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; z-index: 102; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all 0.3s; }
+         .hamburger-menu:hover { background: var(--bg-tertiary); }
+         .hamburger-line { width: 24px; height: 2px; background: var(--text-primary); border-radius: 1px; transition: all 0.3s; }
+         .hamburger-menu.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+         .hamburger-menu.active .hamburger-line:nth-child(2) { opacity: 0; }
+         .hamburger-menu.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+         
+         .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-primary); z-index: 101; flex-direction: column; padding-top: 100px; padding-bottom: 120px; overflow-y: auto; animation: slideIn 0.3s ease; }
+         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+         .mobile-menu.active { display: flex; }
+         .mobile-menu-item { padding: 1rem 2rem; font-size: 1.1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+         .mobile-menu-item:hover, .mobile-menu-item:active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-item.active { background: var(--bg-secondary); color: var(--gradient-1); }
+         .mobile-menu-theme { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; justify-content: space-between; border-top: 1px solid var(--border); margin-top: auto; }
+         .mobile-menu-theme-label { font-size: 0.95rem; }
+        
+        .logo { position: fixed; top: 2rem; left: 2rem; font-size: 1.25rem; font-weight: 600; z-index: 100; }
+        [data-theme="light"] .logo-img-dark { display: none; }
+        [data-theme="light"] .logo-img-light { display: inline; }
+        .logo-img-light { display: none; }
+        
+        footer { margin-top: 8rem; padding: 0 2rem 3rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; border-top: 1px solid var(--border); }
+        .footer-main { display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; gap: 3rem; }
+        .footer-left { display: flex; align-items: center; gap: 1.5rem; }
+        .footer-tagline { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-links { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links .footer-separator { font-size: 0.75rem; color: var(--text-muted); opacity: 0.5; }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all 0.3s; border-radius: 8px; }
+        .footer-social a:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0 0; border-top: 1px solid var(--border); }
+        .footer-credits { font-size: 0.85rem; color: var(--text-muted); }
+         .footer-badge { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-muted); }
+         
+         /* Article Modal */
+         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+         .modal.active { display: flex; animation: fadeIn 0.3s ease; }
+         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+         .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.5rem); max-width: 90%; max-height: 90vh; overflow-y: auto; position: relative; animation: slideUp 0.3s ease; }
+         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+         .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 1.2rem; color: var(--text-primary); }
+         .modal-close:hover { background: var(--border); transform: rotate(90deg); }
+         .modal-header { margin-bottom: 2rem; }
+         .modal-title { font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: 'DM Serif Display', serif; margin-bottom: 0.75rem; }
+         .modal-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+         .modal-meta-item { display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); }
+         .modal-meta-item i { color: var(--gradient-1); }
+         .modal-authors { font-style: italic; color: var(--text-muted); margin-bottom: 1rem; }
+         .modal-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+          .modal-abstract { background: var(--bg-tertiary); padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px; }
+         .modal-abstract-title { font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary); }
+         .modal-abstract-content { color: var(--text-secondary); line-height: 1.7; }
+         .modal-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+         .btn-read-paper { display: inline-flex; align-items: center; gap: 0.75rem; padding: clamp(0.75rem, 1vw, 1rem) clamp(1.25rem, 2vw, 1.75rem); background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); color: var(--bg-primary); border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: clamp(0.9rem, 1.2vw, 1rem); font-family: inherit; }
+         .btn-read-paper:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3); }
+         .btn-read-paper i { font-size: 1.1rem; }
+         
+         @media (max-width: 768px) {
+             .modal-content { max-width: 95%; max-height: 95vh; padding: clamp(1rem, 2vw, 1.5rem); }
+             .modal-close { width: 36px; height: 36px; font-size: 1rem; }
+         }
+        
+         @media (max-width: 480px) {
+             .nav-left-container, .nav-right-container, .nav-home { display: none; }
+             .hamburger-menu { display: flex; }
+             .blog-grid { grid-template-columns: 1fr; gap: clamp(0.75rem, 2vw, 1.5rem); }
+             .blog-featured { grid-column: 1; grid-template-columns: 1fr; }
+             .blog-featured .blog-image { height: clamp(180px, 35vh, 240px); }
+             .blog-content { padding: clamp(1rem, 2vw, 1.5rem); }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 2rem); }
+            .blog-featured { grid-column: 1; grid-template-columns: 1fr; }
+            .blog-featured .blog-image { height: clamp(200px, 35vh, 280px); }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-main { flex-direction: column; text-align: center; }
+            .footer-left { flex-direction: column; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+            .nav-left-container, .nav-right-container { max-width: 40vw; }
+            .nav-item { padding: 0.4rem 0.6rem; font-size: 0.65rem; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-featured { grid-column: span 2; grid-template-columns: 1.5fr 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1025px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-featured { grid-column: span 2; grid-template-columns: 1.5fr 1fr; }
+            .blog-featured .blog-image { height: auto; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RW4YNKR1FY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RW4YNKR1FY');
+    </script>
+</head>
+<body>
+    <div class="bg-tunnel">
+        <div class="tunnel-lines">
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+            <div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div><div class="tunnel-line"></div>
+        </div>
+        <div class="tunnel-light"></div>
+        <div class="tunnel-rings">
+            <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        </div>
+    </div>
+
+    <a href="/" class="logo">
+         <img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 80px;">
+         <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 80px;">
+     </a>
+     
+     <!-- Hamburger Menu Button (Mobile Only) -->
+     <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+         <div class="hamburger-line"></div>
+     </button>
+     
+     <!-- Mobile Menu (Mobile Only) -->
+     <nav class="mobile-menu" id="mobileMenu">
+         <a href="/about" class="mobile-menu-item">About</a>
+         <a href="/education" class="mobile-menu-item">Education</a>
+         <a href="/experience" class="mobile-menu-item">Experience</a>
+         <a href="/projects" class="mobile-menu-item">Projects</a>
+         <a href="/articles" class="mobile-menu-item">Articles</a>
+         <a href="/contact" class="mobile-menu-item">Contact</a>
+         <a href="/cv" target="_blank" class="mobile-menu-item">Download CV</a>
+         <div class="mobile-menu-theme">
+             <span class="mobile-menu-theme-label">Theme:</span>
+             <button id="mobileThemeToggle" class="theme-toggle" onclick="toggleTheme()" style="margin-left: 0;"><i class="ph ph-moon"></i></button>
+         </div>
+     </nav>
+     
+     <nav class="nav-left-container">
+        <a href="/cv" target="_blank" class="nav-item nav-item-icon" title="Preview CV"><i class="ph ph-file-text"></i></a>
+        <a href="/about" class="nav-item">About</a>
+        <a href="/education" class="nav-item">Education</a>
+        <a href="/experience" class="nav-item">Experience</a>
+    </nav>
+
+    <nav class="nav-right-container">
+        <a href="/projects" class="nav-item">Projects</a>
+        <a href="/articles" class="nav-item">Articles</a>
+        <a href="/contact" class="nav-item">Contact</a>
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()"><i class="ph ph-moon"></i></button>
+    </nav>
+    <a href="/" class="nav-home"><i class="ph ph-house"></i></a>
+
+    <div class="mini-hero"><h1>Journals</h1><p>Published research articles and academic papers</p></div>
+
+    <section style="padding-top: 4rem;">
+        <div class="section-header"><p class="section-label">Publications</p><h2 class="section-title">Published Articles</h2></div>
+         <div class="blog-grid">
+             <article class="blog-featured" data-id="hybrid-ml">
+                 <div class="blog-image"><div class="blog-placeholder"><i class="ph ph-brain"></i></div></div>
+                 <div class="blog-content">
+                     <div class="blog-meta"><span class="blog-category">Machine Learning</span><span class="blog-date">January 2026</span><span class="blog-sinta">Sinta 3</span></div>
+                     <h3>Hybrid Machine Learning Predictive Model for Resource Allocation Optimization and Project Risk Management</h3>
+                     <p class="journal-authors">Andika Noor Ismawan, Sawali Wahyu</p>
+                     <p class="journal-abstract">IT project management faces critical challenges related to inaccurate resource allocation estimation and project risk assessment. This study proposes a hybrid machine learning-based decision support framework that integrates Gradient Boosting, Artificial Neural Networks, and Naive Bayes classifier to produce calibrated probabilistic predictions.</p>
+                      <div class="journal-meta"><span><i class="ph ph-book-bookmark"></i> Sinkron - Politeknik Ganesha Medan</span><span><i class="ph ph-number-circle-one"></i> Vol. 10 No. 1</span></div>
+                  </div>
+              </article>
+             <article class="blog-card" data-id="soa-comparison">
+                 <div class="blog-image"><div class="blog-placeholder"><i class="ph ph-plugs-connected"></i></div></div>
+                 <div class="blog-content">
+                      <div class="blog-meta"><span class="blog-category">Software Engineering</span><span class="blog-date">July 2025</span><span class="blog-sinta">Sinta 5</span></div>
+                     <h3>Analisis Perbandingan Strategi Reuse Service dalam Implementasi Service-Oriented Architecture (SOA)</h3>
+                     <p class="journal-authors">Andika Noor Ismawan, et al.</p>
+                     <p class="journal-abstract">This study conducts a comparative analysis of four reuse service approaches within SOA framework: API & Service Standardization, Microservices Architecture, API-First Development, and Enterprise Service Bus (ESB).</p>
+                      <div class="journal-meta"><span><i class="ph ph-book-bookmark"></i> JUTIN - Universitas Esa Unggul</span></div>
+                  </div>
+              </article>
+             <article class="blog-card" data-id="coco-ssd">
+                 <div class="blog-image"><div class="blog-placeholder"><i class="ph ph-eye"></i></div></div>
+                 <div class="blog-content">
+                     <div class="blog-meta"><span class="blog-category">Computer Vision</span><span class="blog-date">February 2026</span></div>
+                     <h3>Object Detection Menggunakan Model COCO-SSD di Web Browser</h3>
+                     <p class="journal-authors">Hermansyah, Andika Noor Ismawan, Sahri Ramadan</p>
+                     <p class="journal-abstract">This research proposes an object detection system using COCO-SSD model that can run in web browsers. The system achieves good accuracy (mAP 0.75) and high speed (30 FPS) without additional installation.</p>
+                      <div class="journal-meta"><span><i class="ph ph-book-bookmark"></i> JRSIT - Universitas Esa Unggul</span></div>
+                  </div>
+              </article>
+         </div>
+    </section>
+
+    <section style="padding-top: 4rem;">
+        <div class="section-header"><p class="section-label">Research Focus</p><h2 class="section-title">Areas of Interest</h2></div>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon"><i class="ph ph-robot"></i></div><h3>Machine Learning</h3><p>Predictive modeling for project risk assessment and resource allocation optimization using hybrid ML approaches.</p></div>
+            <div class="service-card"><div class="service-icon"><i class="ph ph-plugs-connected"></i></div><h3>Software Architecture</h3><p>Service-Oriented Architecture (SOA) and microservices for efficient IT project implementation.</p></div>
+            <div class="service-card"><div class="service-icon"><i class="ph ph-eye"></i></div><h3>Computer Vision</h3><p>Object detection using deep learning models deployed in web browsers with TensorFlow.js.</p></div>
+            <div class="service-card"><div class="service-icon"><i class="ph ph-brain"></i></div><h3>AI Product Strategy</h3><p>Integrating AI capabilities into product roadmaps and leveraging machine learning for enhanced user experiences and business outcomes.</p></div>
+            <div class="service-card"><div class="service-icon"><i class="ph ph-kanban"></i></div><h3>Project Management</h3><p>Agile methodologies, sprint planning, and cross-functional team leadership to deliver projects on time and within budget.</p></div>
+            <div class="service-card"><div class="service-icon"><i class="ph ph-magnifying-glass"></i></div><h3>Product Discovery</h3><p>User research, customer interviews, and market analysis to validate product ideas and ensure product-market fit.</p></div>
+         </div>
+     </section>
+
+     <!-- Article Modal -->
+     <div class="modal" id="articleModal">
+         <div class="modal-content">
+             <button class="modal-close" onclick="closeArticleModal()"><i class="ph ph-x"></i></button>
+             <div class="modal-header">
+                 <h2 class="modal-title" id="modalArticleTitle"></h2>
+                 <p class="modal-authors" id="modalArticleAuthors"></p>
+             </div>
+             <div class="modal-meta" id="modalArticleMeta"></div>
+             <div class="modal-abstract">
+                 <div class="modal-abstract-title">Abstract</div>
+                 <div class="modal-abstract-content" id="modalArticleAbstract"></div>
+             </div>
+             <p class="modal-description" id="modalArticleDescription"></p>
+             <div class="modal-actions">
+                 <a id="readPaperBtn" href="#" target="_blank" class="btn-read-paper">Read Full Paper <i class="ph ph-arrow-right"></i></a>
+             </div>
+         </div>
+     </div>
+
+     <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-left"><img src="images/logo_Dika_.png" alt="Dika" class="logo-img-dark" style="height: 45px; margin-bottom: 0.5rem;">
+                    <img src="images/logo_Dika_1_.png" alt="Dika" class="logo-img-light" style="height: 45px; margin-bottom: 0.5rem;"><span class="footer-tagline">Product & Project Manager</span></div>
+                <div class="footer-links"><a href="/about">About</a><span class="footer-separator">•</span><a href="/education">Education</a><span class="footer-separator">•</span><a href="/experience">Experience</a><span class="footer-separator">•</span><a href="/projects">Projects</a><span class="footer-separator">•</span><a href="/articles">Articles</a><span class="footer-separator">•</span><a href="/contact">Contact</a></div>
+                <div class="footer-social"><a href="https://github.com/Dinoxxc" target="_blank"><i class="ph ph-github-logo"></i></a><a href="https://linkedin.com/in/andikanismawan" target="_blank"><i class="ph ph-linkedin-logo"></i></a><a href="mailto:noorismawanandika@gmail.com"><i class="ph ph-envelope"></i></a></div>
+            </div>
+            <div class="footer-bottom"><p class="footer-credits">© 2026 Dika. All rights reserved.</p><div class="footer-badge"><i class="ph ph-heart"></i><span>Made with passion</span></div></div>
+        </div>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+             const btn = document.getElementById('themeToggle');
+             if (btn) {
+                 const icon = btn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+             const mobileBtn = document.getElementById('mobileThemeToggle');
+             if (mobileBtn) {
+                 const icon = mobileBtn.querySelector('i');
+                 if (document.documentElement.getAttribute('data-theme') === 'light') icon.className = 'ph ph-sun';
+                 else icon.className = 'ph ph-moon';
+             }
+         }
+         const savedTheme = localStorage.getItem('theme') || 'dark';
+         document.documentElement.setAttribute('data-theme', savedTheme);
+         updateThemeIcon();
+         
+         // Hamburger Menu
+         const hamburgerMenu = document.getElementById('hamburgerMenu');
+         const mobileMenu = document.getElementById('mobileMenu');
+         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+         
+         if (hamburgerMenu) {
+             hamburgerMenu.addEventListener('click', () => {
+                 hamburgerMenu.classList.toggle('active');
+                 mobileMenu.classList.toggle('active');
+             });
+         
+             mobileMenuItems.forEach(item => {
+                 item.addEventListener('click', () => {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 });
+             });
+         
+             // Close menu when clicking outside
+             document.addEventListener('click', (e) => {
+                 if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-menu')) {
+                     hamburgerMenu.classList.remove('active');
+                     mobileMenu.classList.remove('active');
+                 }
+             });
+          }
+         
+         // Article Data
+         const articlesData = {
+              'hybrid-ml': {
+                  title: 'Hybrid Machine Learning Predictive Model for Resource Allocation Optimization and Project Risk Management',
+                  authors: 'Andika Noor Ismawan, Sawali Wahyu',
+                  category: 'Machine Learning',
+                  journal: 'Sinkron - Politeknik Ganesha Medan',
+                  date: 'January 2026',
+                  volume: 'Vol. 10 No. 1',
+                  sinta: 'Sinta 3',
+                  abstract: 'IT project management faces critical challenges related to inaccurate resource allocation estimation and project risk assessment, which complicates decision-making and threatens project performance. Although machine learning techniques have been widely adopted in this domain, existing studies predominantly rely on single models or simple ensemble strategies, limiting their ability to capture heterogeneous interactions among organizational, technical, and risk-related factors. This study proposes a hybrid machine learning–based decision support framework that integrates feature-level representation learning and probabilistic decision fusion. Gradient Boosting is reconceptualized as a feature selection and nonlinear interaction modeling mechanism, while Artificial Neural Networks generate latent feature embeddings representing complex project characteristics. These representations are fused through a Naive Bayes classifier to produce calibrated probabilistic predictions, supported by a weighted fusion strategy with F1-score–based threshold optimization to improve stability under imbalanced risk conditions. Experimental evaluation is conducted using 5,997 synthetic IT project records from PT Anugerah Nusa Teknologi. Model performance is evaluated using accuracy, precision, recall, F1-score, and ROC-AUC metrics. Compared to standalone Gradient Boosting, Artificial Neural Network, and Naive Bayes models, the proposed hybrid framework consistently demonstrates superior predictive performance, achieving an accuracy of 0.85, an F1-score of 0.8485, and a ROC-AUC of 0.9050.',
+                  description: 'This research addresses a significant gap in IT project management by developing an intelligent decision support system. The hybrid model combines multiple machine learning algorithms to provide robust predictions about project outcomes, enabling better resource planning and risk mitigation strategies.',
+                  paperUrl: 'https://jurnal.polgan.ac.id/index.php/sinkron/article/view/15773'
+              },
+               'soa-comparison': {
+                   title: 'Analisis Perbandingan Strategi Reuse Service dalam Implementasi Service-Oriented Architecture (SOA) untuk Efisiensi Proyek Teknologi Informasi',
+                   authors: 'Andika Noor Ismawan, Bagus Rosyid Hamdani, Sahri Ramadan, Unique Scovi Egnel, Theodora Maria Putri Komul',
+                   category: 'Software Engineering',
+                   journal: 'JUTIN - Universitas Esa Unggul',
+                   date: 'July 2025',
+                   volume: 'Vol. 8 No. 3',
+                   sinta: 'Sinta 5',
+                   abstract: 'The rapid advancement of digital technology necessitates the adoption of efficient and sustainable system development strategies. This study aims to conduct a comparative analysis of four reuse service approaches within the framework of Service-Oriented Architecture (SOA), namely API & Service Standardization, Microservices Architecture, API-First Development, and Enterprise Service Bus (ESB). The research method employed is a literature review of recent scholarly sources, along with an evaluation of the effectiveness of each approach in terms of time efficiency, cost, and resource utilization. The findings indicate that each strategy possesses distinct characteristics and contextual advantages, with the API-First approach deemed the most flexible in supporting service integration and modular system development. Based on these findings, it is recommended that the selection of reuse strategies be aligned with organizational needs and the complexity of the systems being developed.',
+                   description: 'Service reuse is a fundamental principle in Service-Oriented Architecture. This comprehensive analysis examines different strategies for implementing service reuse, providing practical insights for software architects choosing between various SOA patterns and approaches.',
+                   paperUrl: 'https://doi.org/10.31004/jutin.v8i3.46348'
+               },
+              'coco-ssd': {
+                  title: 'Object Detection Menggunakan Model COCO-SSD di Web Browser',
+                  authors: 'Hermansyah, Andika Noor Ismawan, Sahri Ramadan',
+                  category: 'Computer Vision',
+                  journal: 'JRSIT - Universitas Esa Unggul',
+                  date: 'February 2026',
+                  volume: 'Vol. 3 No. 3',
+                  sinta: '',
+                  abstract: 'Deteksi objek merupakan salah satu tugas penting dalam computer vision yang digunakan untuk mengidentifikasi dan melokalisasi objek dalam gambar atau video. Dalam penelitian ini, kami mengusulkan sebuah sistem deteksi objek menggunakan model Common Objects in Context (COCO) Single Shot Multibox Detector (SSD) yang dapat dijalankan di web browser. Tujuan dari penelitian ini adalah untuk mengembangkan sistem deteksi objek yang dapat berjalan dengan cepat dan akurat di web browser tanpa perlu instalasi tambahan. Metodologi penelitian ini meliputi pengumpulan dataset COCO, pelatihan model SSD COCO menggunakan framework TensorFlow, dan implementasi model di web browser menggunakan teknologi JavaScript dan WebGL. Sistem ini diuji menggunakan dataset pengujian COCO dan hasilnya dibandingkan dengan model deteksi objek lainnya. Hasil eksperimen menunjukkan bahwa sistem ini dapat mendeteksi objek dengan akurasi yang baik (mAP 0,75) dan kecepatan yang tinggi (30 FPS) di web browser. Sistem ini juga dapat berjalan dengan lancar di berbagai perangkat, termasuk desktop, laptop, dan smartphone.',
+                  description: 'Bringing advanced computer vision capabilities to web browsers opens new possibilities for interactive applications. This research demonstrates how modern deep learning models can be efficiently deployed and executed client-side, enabling responsive and privacy-preserving object detection applications.',
+                  paperUrl: 'https://doi.org/10.70248/jrsit.v3i3.3517'
+              }
+         };
+
+         // Modal Functions
+         function openArticleModal(articleId) {
+             const article = articlesData[articleId];
+             if (!article) return;
+
+             document.getElementById('modalArticleTitle').textContent = article.title;
+             document.getElementById('modalArticleAuthors').textContent = 'by ' + article.authors;
+             document.getElementById('modalArticleAbstract').textContent = article.abstract;
+             document.getElementById('modalArticleDescription').textContent = article.description;
+             
+             let metaHtml = `<div class="modal-meta-item"><i class="ph ph-book-bookmark"></i><span>${article.journal}</span></div><div class="modal-meta-item"><i class="ph ph-calendar"></i><span>${article.date}</span></div>`;
+             if (article.volume) metaHtml += `<div class="modal-meta-item"><i class="ph ph-hash"></i><span>${article.volume}</span></div>`;
+             if (article.sinta) metaHtml += `<div class="modal-meta-item"><i class="ph ph-award"></i><span>${article.sinta}</span></div>`;
+             document.getElementById('modalArticleMeta').innerHTML = metaHtml;
+             
+             document.getElementById('readPaperBtn').href = article.paperUrl;
+             document.getElementById('articleModal').classList.add('active');
+             document.body.style.overflow = 'hidden';
+         }
+
+         function closeArticleModal() {
+             document.getElementById('articleModal').classList.remove('active');
+             document.body.style.overflow = 'auto';
+         }
+
+         // Close modal when clicking outside
+         document.getElementById('articleModal').addEventListener('click', (e) => {
+             if (e.target.id === 'articleModal') closeArticleModal();
+         });
+
+         // Close modal with Escape key
+         document.addEventListener('keydown', (e) => {
+             if (e.key === 'Escape') closeArticleModal();
+         });
+
+         // Add click listeners to article cards
+         document.querySelectorAll('[data-id]').forEach(card => {
+             card.addEventListener('click', () => {
+                 const articleId = card.dataset.id;
+                 openArticleModal(articleId);
+             });
+         });
+     </script>
+</body>
+</html>
